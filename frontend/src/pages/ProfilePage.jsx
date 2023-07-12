@@ -6,6 +6,8 @@ import userImage2 from "../assets/Profils/2.png";
 import userLandscape1 from "../assets/Landscapes/1.jpg";
 import userLandscape2 from "../assets/Landscapes/2.jpg";
 
+import Post from "../components/Post";
+
 const ProfilePage = () => {
   const [profile, setProfile] = useState();
   const [posts, setPosts] = useState();
@@ -87,8 +89,19 @@ const ProfilePage = () => {
               <p>Reine du Nil, beauté somptueuse, cat loveuse</p>
             )}
           </div>
+
           <div>
-            <p>{posts[0].content} </p>
+            {id == 1 ? (
+              <div>
+                <Post post={posts[0]} />
+                <Post post={posts[1]} />
+              </div>
+            ) : (
+              <div>
+                <Post post={posts[2]} />
+                <Post post={posts[3]} />
+              </div>
+            )}
           </div>
         </>
       )}

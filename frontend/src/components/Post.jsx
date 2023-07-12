@@ -10,7 +10,7 @@ const Post = ({ post, setRefresh, refresh }) => {
       <div className="flex items-center gap-3 ml-5 mt-5">
         <img
           className="rounded-full w-12 h-12"
-          src={`../assets/Profils/${post.userId}`}
+          src={`/${post.uid}.png`}
           alt={`${post.firstname}-profile-picture`}
         />
         <div>
