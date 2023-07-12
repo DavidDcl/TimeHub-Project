@@ -3,24 +3,31 @@ import Post from "../components/Post";
 
 const Home = () => {
   const [modal, setModal] = useState(true);
-
-  const handleConnexion = () => {
-    setModal(false);
-  };
-
   const [posts, setPosts] = useState(null);
   const [refresh, setRefresh] = useState(false);
-  const fetchData = async () => {
-    await fetch("http://localhost:8000/api/posts")
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
-  };
+  const [content, setContent] = useState("");
 
   useEffect(() => {
     fetchData();
   }, [refresh, posts]);
 
-  const [content, setContent] = useState("");
+  useEffect(() => {
+    const storageModal = localStorage.getItem("modalState");
+    if (storageModal === "false") {
+      setModal(false);
+    }
+  }, []);
+
+  const handleConnexion = () => {
+    setModal(false);
+    localStorage.setItem("modalState", "false");
+  };
+
+  const fetchData = async () => {
+    await fetch("http://localhost:8000/api/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
+  };
 
   const handleSubmit = async (e) => {
     if (content) {
