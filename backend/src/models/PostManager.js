@@ -7,13 +7,13 @@ class PostManager extends AbstractManager {
 
   findAll() {
     return this.database.query(
-      `SELECT p.id, p.content, u.firstname, u.lastname, u.picture FROM ${this.table} p JOIN users u ON  p.author = u.id`
+      `SELECT p.id, p.content, u.nickname, u.firstname, u.lastname, u.era, u.picture FROM ${this.table} p JOIN users u ON  p.author = u.id`
     )
   }
 
   find(id) {
     return this.database.query(
-      `SELECT p.id, p.content, u.firstname, u.lastname, u.picture FROM ${this.table} p JOIN users u ON  p.author = u.id where p.id = ?`,
+      `SELECT p.id, p.content, u.nickname, u.firstname, u.lastname, u.era, u.picture FROM ${this.table} p JOIN users u ON  p.author = u.id where p.id = ?`,
       [id]
     )
   }
@@ -25,10 +25,14 @@ class PostManager extends AbstractManager {
     )
   }
 
-  update(item) {
+  delete(id) {
+    return this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id])
+  }
+
+  update(post) {
     return this.database.query(
-      `update ${this.table} set title = ? set content = ? where id = ?`,
-      [item.title, item.content, item.id]
+      `UPDATE ${this.table} SET content = ? where id = ?`,
+      [post.content, post.id]
     )
   }
 }
