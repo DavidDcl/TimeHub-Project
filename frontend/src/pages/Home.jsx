@@ -1,49 +1,49 @@
-import { useEffect, useState } from "react";
-import Post from "../components/Post";
+import { useEffect, useState } from "react"
+import Post from "../components/Post"
 
 const Home = () => {
-  const [modal, setModal] = useState(true);
-  const [posts, setPosts] = useState(null);
-  const [refresh, setRefresh] = useState(false);
-  const [content, setContent] = useState("");
+  const [modal, setModal] = useState(true)
+  const [posts, setPosts] = useState(null)
+  const [refresh, setRefresh] = useState(false)
+  const [content, setContent] = useState("")
 
   useEffect(() => {
-    fetchData();
-  }, [refresh, posts]);
+    fetchData()
+  }, [refresh, posts])
 
   useEffect(() => {
-    const storageModal = localStorage.getItem("modalState");
+    const storageModal = localStorage.getItem("modalState")
     if (storageModal === "false") {
-      setModal(false);
+      setModal(false)
     }
-  }, []);
+  }, [])
 
   const handleConnexion = () => {
-    setModal(false);
-    localStorage.setItem("modalState", "false");
-  };
+    setModal(false)
+    localStorage.setItem("modalState", "false")
+  }
 
   const fetchData = async () => {
     await fetch("http://localhost:8000/api/posts")
       .then((res) => res.json())
-      .then((data) => setPosts(data));
-  };
+      .then((data) => setPosts(data))
+  }
 
   const handleSubmit = async (e) => {
     if (content) {
-      e.preventDefault();
+      e.preventDefault()
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: `${content}` }),
-      };
-      fetch(`http://localhost:8000/api/posts`, requestOptions);
-      setContent("");
-      setRefresh(!refresh);
+      }
+      fetch(`http://localhost:8000/api/posts`, requestOptions)
+      setContent("")
+      setRefresh(!refresh)
     } else {
-      e.preventDefault();
+      e.preventDefault()
     }
-  };
+  }
 
   return (
     <div className="mt-4">
@@ -99,7 +99,7 @@ const Home = () => {
             <div className="flex flex-col">
               <img
                 className="rounded-full w-12 h-12 ml-3 mt-3 mr-8"
-                src="https://picsum.photos/200/300"
+                src="/1.png"
                 alt=""
               />
             </div>
@@ -107,7 +107,7 @@ const Home = () => {
               <div className="flex flex-col mt-3">
                 <textarea
                   className="bg-transparent flex-grow mt-3 border-none outline-none resize-none"
-                  placeholder="What's up baby ? ..."
+                  placeholder="Envie de partager ton humeur ? "
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                 />
@@ -138,7 +138,7 @@ const Home = () => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

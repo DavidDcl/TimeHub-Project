@@ -27,11 +27,17 @@ const NavBar = () => {
         className="flex items-center justify-between border-b-2 border-primary p-3 md:hidden"
       >
         <div id="pp" className="flex flex-initial">
-          <img src={pp} alt="" className="w-16" />
+          <img
+            src={pp}
+            alt=""
+            className="w-16 border-2 border-primary rounded-full"
+          />
         </div>
-        <div id="logo" className="ml-6">
-          <img src={logo} alt="" className="w-36" />
-        </div>
+        <Link to="/">
+          <div id="logo" className="ml-6">
+            <img src={logo} alt="" className="w-36" />
+          </div>
+        </Link>
       </div>
     </div>
   )
