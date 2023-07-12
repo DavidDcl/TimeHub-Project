@@ -163,7 +163,7 @@ const Home = () => {
                 </div>
               </div>
             </div>
-            <div className='w-full max-w-[7rem]  justify-end ml-3 h-full'>
+            <div className='w-full max-w-[7rem]  justify-end ml-3 h-full hidden md:flex'>
               <FriendsList />
             </div>
           </div>
