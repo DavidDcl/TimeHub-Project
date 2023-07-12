@@ -24,26 +24,26 @@ const Home = () => {
               <div className="card-body">
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-secondary">
+                    <span className="label-text dark:text-secondary">
                       Nom d'utilisateur
                     </span>
                   </label>
                   <input
                     type="text"
                     placeholder="nom d'utilisateur"
-                    className="input input-bordered text-secondary"
+                    className="input input-bordered dark:text-secondary"
                   />
                 </div>
                 <div className="form-control">
                   <label className="label">
-                    <span className="label-text text-secondary">
+                    <span className="label-text dark:text-secondary">
                       Mot de passe
                     </span>
                   </label>
                   <input
                     type="password"
                     placeholder="mot de passe"
-                    className="input input-bordered text-secondary"
+                    className="input input-bordered dark:text-secondary"
                   />
                   <label className="label"></label>
                 </div>
