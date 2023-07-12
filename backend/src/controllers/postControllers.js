@@ -58,7 +58,7 @@ const add = (req, res) => {
   models.post
     .insert(post)
     .then(([result]) => {
-      res.location(`/items/${result.insertId}`).sendStatus(201)
+      res.location(`/posts/${result.insertId}`).sendStatus(201)
     })
     .catch((err) => {
       console.error(err)

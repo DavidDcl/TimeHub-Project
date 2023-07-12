@@ -7,14 +7,21 @@ class PostManager extends AbstractManager {
 
   findAll() {
     return this.database.query(
-      `SELECT p.id, p.title, p.content, u.firstname, u.lastname, u.picture FROM ${this.table} p JOIN users u ON  p.author = u.id`
+      `SELECT p.id, p.content, u.firstname, u.lastname, u.picture FROM ${this.table} p JOIN users u ON  p.author = u.id`
+    )
+  }
+
+  find(id) {
+    return this.database.query(
+      `SELECT p.id, p.content, u.firstname, u.lastname, u.picture FROM ${this.table} p JOIN users u ON  p.author = u.id where p.id = ?`,
+      [id]
     )
   }
 
   insert(item) {
     return this.database.query(
-      `insert into ${this.table} (title, content) values (?,?)`,
-      [item.title, item.content]
+      `INSERT INTO ${this.table} (content, author) values (?,1)`,
+      [item.content]
     )
   }
 
