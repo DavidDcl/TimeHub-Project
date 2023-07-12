@@ -7,8 +7,10 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE
     `users` (
         `id` INTEGER NOT NULL AUTO_INCREMENT,
+        `nickname` VARCHAR(20) NOT NULL,
         `firstname` VARCHAR(20) NOT NULL,
         `lastname` VARCHAR(20) NOT NULL,
+        `era` VARCHAR(20) NOT NULL,
         `picture` VARCHAR(150),
         PRIMARY KEY (`id`)
     );
@@ -25,8 +27,13 @@ CREATE TABLE
     );
 
 INSERT INTO
-    `users` (`firstname`, `lastname`)
-VALUES ('Cédric', 'Sia'), ('David', 'Lopes'), ('Killian', 'Cousseau'), ('Sam', 'Nawak'), ('Thibaut', 'Plez'), ('Leonard', 'De Vinci'), ('Cro', 'Magnon');
+    `users` (
+        `nickname`,
+        `firstname`,
+        `lastname`,
+        `era`
+    )
+VALUES ('Albert', 'Einsten'), ('Leonard', 'De Vinci'), ('Napoléon', 'Bonaparte', 1769);
 
 INSERT INTO
     `posts` (`title`, `content`, `author`)
