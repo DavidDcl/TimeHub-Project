@@ -1,9 +1,11 @@
+import ConversationList from './../components/ConversationList'
+
 const ChatPage = () => {
   return (
     <div>
-      <p>hello</p>
+      <ConversationList />
     </div>
-  );
-};
+  )
+}
 
-export default ChatPage;
+export default ChatPage
