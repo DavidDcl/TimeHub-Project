@@ -1,7 +1,5 @@
-import React from 'react'
-
 const ChatPAgeId = () => {
-  return <div>ChatPAgeId</div>
-}
+  return <div>ChatPageId</div>;
+};
 
-export default ChatPAgeId
+export default ChatPAgeId;
