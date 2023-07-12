@@ -1,7 +1,6 @@
-import React from "react";
-import profileP from "../assets/Profils/1.png";
+import profileP from "../../public/1.png";
 
-import profile2 from "../assets/Profils/2.png";
+import profile2 from "../../public/2.png";
 const ConversationList = () => {
   const conversations = [
     {
@@ -38,13 +37,8 @@ const ConversationList = () => {
 
   return (
     <div>
-      <div className="flex items-center gap-12   mb-4 border-b-2 border-primary p-5">
-        <img
-          className="ml-4 w-14 rounded-full justify-start"
-          src={profileP}
-          alt="profile-picture"
-        />
-        <h1 className="text-xl ">Messagerie</h1>
+      <div className="flex items-center justify-center   mb-4  p-5">
+        <h1 className="text-2xl ">Messagerie</h1>
       </div>
       <div>
         <input
