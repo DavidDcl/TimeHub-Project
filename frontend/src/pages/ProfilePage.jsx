@@ -8,48 +8,76 @@ import userLandscape2 from "../assets/Landscapes/2.jpg";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState();
-  const [isValid, setIsValid] = useState(true);
-  const [isLoading, setIsLoading] = useState(true);
+  const [posts, setPosts] = useState();
+  const [isValid1, setIsValid1] = useState(true);
+  const [isValid2, setIsValid2] = useState(true);
+  const [isLoading1, setIsLoading1] = useState(true);
+  const [isLoading2, setIsLoading2] = useState(true);
   const { id } = useParams();
   useEffect(() => {
     fetch(`http://localhost:8000/api/users/${id}`)
       .then((response) => {
-        if (!response.ok) setIsValid(false);
+        if (!response.ok) setIsValid1(false);
         return response.json();
       })
       .then((response) => {
         setProfile(response);
-        setIsLoading(false);
+        setIsLoading1(false);
+      })
+      .catch((err) => console.error(err));
+
+    fetch(`http://localhost:8000/api/posts/`)
+      .then((response) => {
+        if (!response.ok) setIsValid2(false);
+        return response.json();
+      })
+      .then((response) => {
+        setPosts(response);
+        setIsLoading2(false);
       })
       .catch((err) => console.error(err));
   }, [id]);
   console.log(profile);
+  console.log(posts);
 
   return (
     <div>
-      {isLoading && <h1>Chargement en cours</h1>}
-      {!isValid && <h1>Aucun profil correspondant</h1>}
-      {isValid && !isLoading && (
+      {isLoading1 && isLoading2 && <h1>Chargement en cours</h1>}
+      {!isValid1 && !isValid2 && <h1>Aucun profil correspondant</h1>}
+      {isValid1 && !isLoading1 && isValid2 && !isLoading2 && (
         <>
-          <div>{`${profile.firstname} @${profile.nickname}`}</div>
-          <div>
-            {id == 1 ? (
-              <img src={userLandscape1} alt="Einstein" />
-            ) : (
-              <img src={userLandscape2} alt="Cleopatre" />
-            )}
+          <div
+            className="m-3
+          "
+          >{`${profile.firstname} @${profile.nickname}`}</div>
+          <div className="relative">
+            <div>
+              {id == 1 ? (
+                <img
+                  className="w-full h-36"
+                  src={userLandscape1}
+                  alt="Einstein"
+                />
+              ) : (
+                <img
+                  className="w-full h-36"
+                  src={userLandscape2}
+                  alt="Cleopatre"
+                />
+              )}
+            </div>
+            <div className="absolute left-0 -bottom-12">
+              {id == 1 ? (
+                <img src={userImage1} alt="Einstein" />
+              ) : (
+                <img src={userImage2} alt="Cleopatre" />
+              )}
+            </div>
           </div>
-          <div>
-            {id == 1 ? (
-              <img src={userImage1} alt="Einstein" />
-            ) : (
-              <img src={userImage2} alt="Cleopatre" />
-            )}
-          </div>
-          <div>
+          <div className="mt-12 ml-3 mb-2 text-lg">
             {profile.firstname} {profile.lastname}
           </div>
-          <div>
+          <div className="m-3">
             {id == 1 ? (
               <p>
                 Génie, découvreur de la théorie de la relativité, prix Nobel de
@@ -58,6 +86,9 @@ const ProfilePage = () => {
             ) : (
               <p>Reine du Nil, beauté somptueuse, cat loveuse</p>
             )}
+          </div>
+          <div>
+            <p>{posts[0].content} </p>
           </div>
         </>
       )}
