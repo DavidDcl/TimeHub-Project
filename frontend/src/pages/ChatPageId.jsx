@@ -1,4 +1,4 @@
-import pp from "../assets/Profils/2.png";
+import pp from "../../public/2.png";
 
 const ChatPageId = () => {
   const conversation = [
