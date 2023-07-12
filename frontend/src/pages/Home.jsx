@@ -95,7 +95,7 @@ const Home = () => {
         </div>
       ) : (
         <>
-          <div className="flex rounded-lg border-2 border-primary mx-3 mb-5">
+          <div className="flex rounded-[1rem] border-2 border-accent mx-3 mb-5">
             <div className="flex flex-col">
               <img
                 className="border-2 rounded-full border-primary w-12 h-12 ml-3 mt-3 mr-8"
@@ -113,7 +113,7 @@ const Home = () => {
                 />
                 <div className="flex justify-end">
                   <button
-                    className="mr-3 mb-3 text-secondary bg-accent rounded-lg px-3 py-1"
+                    className="mr-3 mb-3 text-secondary bg-accent rounded-lg font-semibold px-3 py-1"
                     type="submit"
                   >
                     Post

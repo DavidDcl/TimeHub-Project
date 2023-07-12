@@ -1,6 +1,6 @@
-import profileP from "../../public/1.png";
+import profileP from "../../public/1.png"
 
-import profile2 from "../../public/2.png";
+import profile2 from "../../public/2.png"
 const ConversationList = () => {
   const conversations = [
     {
@@ -33,40 +33,39 @@ const ConversationList = () => {
       message: "Bon courage !",
       img: "/7.png",
     },
-  ];
+  ]
 
   return (
-    <div>
-      <div className="flex items-center justify-center   mb-4  p-5">
-        <h1 className="text-2xl ">Messagerie</h1>
-      </div>
-      <div>
+    <div className="flex flex-col">
+      <div className="m-auto">
         <input
-          className="flex m-auto mt-6 p-2 mb-6 rounded-xl bg-base-100 w-80 border border-secondary outline-neutral-focus text-center"
+          className="flex m-3 p-2 mb-6 rounded-xl bg-base-100 w-80 border border-accent outline-neutral-focus text-center"
           type="text"
           placeholder="Chercher un message ..."
         />
       </div>
-      <div className="mt-2">
+      <div className="">
         {conversations.map((conversation, index) => (
           <div
             key={index}
-            className="rounded-lg p-4 mb-4 border border-secondary mx-3"
+            className="rounded-[1rem] p-2 mb-4 border-2 border-neutral mx-3"
           >
             <div className="flex items-center mb-2">
               <img
-                className="w-8 h-8 rounded-full"
+                className="w-12 h-12 rounded-full border-2 border-primary"
                 src={conversation.img}
                 alt="user-profile"
               />
-              <h1 className="font-bold ml-2">{conversation.utilisateur}</h1>
+              <p className="dark:text-secondary font-semibold ml-2">
+                {conversation.utilisateur}
+              </p>
             </div>
             <p>{conversation.message}</p>
           </div>
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ConversationList;
+export default ConversationList
