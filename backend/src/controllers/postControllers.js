@@ -1,10 +1,10 @@
-import models from "../models/index.js"
+import models from '../models/index.js'
 
 const browse = (req, res) => {
   models.post
     .findAll()
     .then(([rows]) => {
-      res.send(rows)
+      res.json(rows)
     })
     .catch((err) => {
       console.error(err)
