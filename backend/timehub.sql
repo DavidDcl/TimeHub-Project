@@ -34,10 +34,75 @@ INSERT INTO
         `era`
     )
 VALUES (
-        'Loulou',
+        'E=mc²',
         'Albert',
         'Einstein',
-        '1900PC'
+        '1900'
+    ), (
+        'Reine_Du_Nil',
+        'Cleopatra',
+        'Patra',
+        '-69'
+    ), (
+        'Italia_Ekip',
+        'Leonardo',
+        'de Vinci',
+        '1480'
+    ), (
+        'OubaOuba',
+        'Lucy',
+        'Magnon',
+        '-3.2M'
+    ), (
+        'Pomme_dapi',
+        'Isaac',
+        'Newton',
+        '1780'
+    ), (
+        'Grand-Homme',
+        'Napoleon',
+        'Bonaparte',
+        '1800'
+    ), (
+        'Tothemoon',
+        'Elon',
+        'Musk',
+        '2022'
+    ), (
+        'Elektric',
+        'Nikola',
+        'Tesla',
+        '1900'
+    ), (
+        'Vini_Vidi_Vici',
+        'Julius',
+        'Caesar',
+        '-50'
+    ), (
+        'Dream',
+        'Martin Luther',
+        'King',
+        '1950'
+    ), (
+        'Rage_quit',
+        'Louis',
+        'Pasteur',
+        '1850'
+    ), (
+        'Radium',
+        'Marie',
+        'Curie',
+        '1900'
+    ), (
+        'Poupoupidou',
+        'Marilyn',
+        'Monroe',
+        '1945'
+    ), (
+        'MarieSansTete',
+        'Marie',
+        'Antoinette',
+        '1780'
     );
 
 INSERT INTO
