@@ -8,24 +8,26 @@ const Post = ({ post, setRefresh, refresh }) => {
     setRefresh(!refresh);
   };
   return (
-    <div className="flex flex-col rounded-lg border-2 border-primary mx-3 mb-5">
+    <div className="flex flex-col rounded-[1rem] border-2 border-neutral mx-3 mb-5">
       <div className="flex items-center gap-3 ml-5 mt-5">
-        <Link to={`/profile/${post.uid}`} className="text-sm md:text-lg mr-10">
+        <Link to={`/profile/${post.uid}`} className="text-sm md:text-lg mr-4">
           <img
-            className="rounded-full w-12 h-12"
+            className="border-2 rounded-full border-primary w-12 h-12"
             src={`/${post.uid}.png`}
             alt={`${post.firstname}-profile-picture`}
           />
         </Link>
         <div>
-          <p>
+          <p className="dark:text-secondary">
             {post.firstname} -@{post.nickname}
           </p>
-          <p className="text-xs md:text-base">Il y a {2023 - post.era} ans</p>
+          <p className="dark:text-primary text-xs md:text-base">
+            Il y a {2023 - post.era} ans
+          </p>
         </div>
       </div>
       <p className="mx-5 my-5 md:text-xl">{post.content}</p>
-      <div className="flex items-center justify-between bg-primary">
+      <div className="flex items-center justify-between bg-neutral rounded-b-xl">
         <div className="flex gap-3 pl-3 py-1.5 ">
           <button>
             <svg
@@ -93,17 +95,19 @@ const Post = ({ post, setRefresh, refresh }) => {
             </svg>
           </button>
         </div>
-        <button onClick={handleDelete}>
-          <svg
-            className="mr-3"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 30 30"
-            width="30px"
-            height="30px"
-          >
-            <path d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z" />
-          </svg>
-        </button>
+        {post.uid === 1 && (
+          <button onClick={handleDelete}>
+            <svg
+              className="mr-3"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 30 30"
+              width="30px"
+              height="30px"
+            >
+              <path d="M 14.984375 2.4863281 A 1.0001 1.0001 0 0 0 14 3.5 L 14 4 L 8.5 4 A 1.0001 1.0001 0 0 0 7.4863281 5 L 6 5 A 1.0001 1.0001 0 1 0 6 7 L 24 7 A 1.0001 1.0001 0 1 0 24 5 L 22.513672 5 A 1.0001 1.0001 0 0 0 21.5 4 L 16 4 L 16 3.5 A 1.0001 1.0001 0 0 0 14.984375 2.4863281 z M 6 9 L 7.7929688 24.234375 C 7.9109687 25.241375 8.7633438 26 9.7773438 26 L 20.222656 26 C 21.236656 26 22.088031 25.241375 22.207031 24.234375 L 24 9 L 6 9 z" />
+            </svg>
+          </button>
+        )}
       </div>
     </div>
   );

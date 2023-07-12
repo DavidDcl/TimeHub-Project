@@ -12,17 +12,21 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-        <NavBar />
-        <main className="mb-[5rem]">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/chatpage" element={<ChatPage />} />
-            <Route path="/chatpage/:id" element={<ChatPageId />} />
-            <Route path="/profile/:id" element={<ProfilePage />} />
-            <Route path="/search" element={<SearchPage />} />
-          </Routes>
-        </main>
-        <BottomNav />
+        <div className="md:flex md:flex-col">
+          <NavBar />
+          <main className="md:flex md:justify-center mb-[5rem] md:mb-0">
+            <div className="md:max-w-5xl md:w-full">
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/chatpage" element={<ChatPage />} />
+                <Route path="/chatpage/:id" element={<ChatPageId />} />
+                <Route path="/profile/:id" element={<ProfilePage />} />
+                <Route path="/search" element={<SearchPage />} />
+              </Routes>
+            </div>
+          </main>
+          <BottomNav />
+        </div>
       </BrowserRouter>
     </>
   );
