@@ -18,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchData();
-  }, [refresh]);
+  }, [refresh, posts]);
 
   const [content, setContent] = useState("");
 
@@ -39,7 +39,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="mt-4">
       {modal ? (
         <div className="hero min-h-[80vh] bg-base-200">
           <div className="hero-content flex-col lg:flex-row-reverse">

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-import userImage1 from "../assets/Profils/1.png";
-import userImage2 from "../assets/Profils/2.png";
+import userImage1 from "../../public/1.png";
+import userImage2 from "../../public/2.png";
 import userLandscape1 from "../assets/Landscapes/1.jpg";
 import userLandscape2 from "../assets/Landscapes/2.jpg";
 

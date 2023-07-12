@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Post = ({ post, setRefresh, refresh }) => {
   const handleDelete = () => {
     fetch(`http://localhost:8000/api/posts/${post.id}`, {
@@ -14,7 +16,11 @@ const Post = ({ post, setRefresh, refresh }) => {
           alt={`${post.firstname}-profile-picture`}
         />
         <div>
-          <p className="text-sm md:text-lg mr-10">
+          <Link
+            to={`/profile/${post.uid}`}
+            className="text-sm md:text-lg mr-10"
+          />
+          <p>
             {post.firstname} -@{post.nickname}
           </p>
           <p className="text-xs md:text-base">Il y a {2023 - post.era} ans</p>

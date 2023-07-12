@@ -1,8 +1,8 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 
 const BottomNav = () => {
   return (
-    <div>
+    <div className="flex md:hidden">
       <div className="btm-nav bg-accent ">
         <Link to="/">
           <svg
@@ -70,7 +70,7 @@ const BottomNav = () => {
         </Link>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BottomNav
+export default BottomNav;
