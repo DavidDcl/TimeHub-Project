@@ -41,7 +41,7 @@ const Home = () => {
                     </span>
                   </label>
                   <input
-                    type="text"
+                    type="password"
                     placeholder="mot de passe"
                     className="input input-bordered text-secondary"
                   />
