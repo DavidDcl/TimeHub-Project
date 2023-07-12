@@ -25,10 +25,14 @@ class PostManager extends AbstractManager {
     )
   }
 
-  update(item) {
+  delete(id) {
+    return this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id])
+  }
+
+  update(post) {
     return this.database.query(
-      `update ${this.table} set title = ? set content = ? where id = ?`,
-      [item.title, item.content, item.id]
+      `UPDATE ${this.table} SET content = ? where id = ?`,
+      [post.content, post.id]
     )
   }
 }
