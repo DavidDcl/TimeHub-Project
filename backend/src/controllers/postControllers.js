@@ -1,18 +1,10 @@
-<<<<<<< HEAD
 import models from "../models/index.js";
-=======
-import models from '../models/index.js'
->>>>>>> dec865f0bb1c0cf97d68bdf987ce274dd920cbcc
 
 const browse = (req, res) => {
   models.post
     .findAll()
     .then(([rows]) => {
-<<<<<<< HEAD
       res.send(rows);
-=======
-      res.json(rows)
->>>>>>> dec865f0bb1c0cf97d68bdf987ce274dd920cbcc
     })
     .catch((err) => {
       console.error(err);
