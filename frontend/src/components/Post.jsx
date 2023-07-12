@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Post = ({ post, setRefresh, refresh }) => {
   const handleDelete = () => {
     fetch(`http://localhost:8000/api/posts/${post.id}`, {
@@ -10,13 +12,16 @@ const Post = ({ post, setRefresh, refresh }) => {
       <div className="flex items-center gap-3 ml-5 mt-5">
         <img
           className="rounded-full w-12 h-12"
-          src={`../assets/Profils/${post.userId}`}
+          src={`/${post.uid}.png`}
           alt={`${post.firstname}-profile-picture`}
         />
         <div>
-          <p className="text-sm md:text-lg mr-10">
+          <Link
+            to={`/profile/${post.uid}`}
+            className="text-sm md:text-lg mr-10"
+          >
             {post.firstname} -@{post.nickname}
-          </p>
+          </Link>
           <p className="text-xs md:text-base">{2023 - post.era} years ago</p>
         </div>
       </div>

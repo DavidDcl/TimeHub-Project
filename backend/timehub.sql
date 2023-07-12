@@ -1,4 +1,4 @@
--- Active: 1689163390473@@127.0.0.1@3306@timehub
+-- Active: 1689174540931@@127.0.0.1@3306@timehub
 
 DROP TABLE IF EXISTS `posts`;
 
@@ -107,8 +107,17 @@ VALUES (
 INSERT INTO
     `posts` (`content`, `author`)
 VALUES (
-        'My first post is really relative',
+        'Mon premier message est vraiment relatif.',
         1
+    ), (
+        "Que chacun raisonne en son âme et conscience, qu'il se fasse une idée fondée sur ses propres lectures et non d'après les racontars des autres.",
+        1
+    ), (
+        "Petite balade le long du Nil, toujours entourée de mes serviteurs dévoués.",
+        2
+    ), (
+        "Quoi, mon nez ?! Qu'est-ce qu'il a mon nez ?",
+        2
     );
 
 -- SELECT p.id, p.title, p.content, u.firstname, u.lastname, u.picture

@@ -18,7 +18,7 @@ const Home = () => {
 
   useEffect(() => {
     fetchData();
-  }, [refresh]);
+  }, [refresh, posts]);
 
   const [content, setContent] = useState("");
 
