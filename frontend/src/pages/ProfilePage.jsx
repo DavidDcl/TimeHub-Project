@@ -93,13 +93,19 @@ const ProfilePage = () => {
           <div>
             {id == 1 ? (
               <div>
-                <Post post={posts[0]} />
-                <Post post={posts[1]} />
+                {posts
+                  .filter((post) => post.uid === 1)
+                  .map((post) => (
+                    <Post key={post.id} post={post} />
+                  ))}
               </div>
             ) : (
               <div>
-                <Post post={posts[2]} />
-                <Post post={posts[3]} />
+                {posts
+                  .filter((post) => post.uid === 2)
+                  .map((post) => (
+                    <Post key={post.id} post={post} />
+                  ))}
               </div>
             )}
           </div>

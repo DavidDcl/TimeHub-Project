@@ -10,19 +10,18 @@ const Post = ({ post, setRefresh, refresh }) => {
   return (
     <div className="flex flex-col rounded-lg border-2 border-primary mx-3 mb-5">
       <div className="flex items-center gap-3 ml-5 mt-5">
-        <img
-          className="rounded-full w-12 h-12"
-          src={`/${post.uid}.png`}
-          alt={`${post.firstname}-profile-picture`}
-        />
+        <Link to={`/profile/${post.uid}`} className="text-sm md:text-lg mr-10">
+          <img
+            className="rounded-full w-12 h-12"
+            src={`/${post.uid}.png`}
+            alt={`${post.firstname}-profile-picture`}
+          />
+        </Link>
         <div>
-          <Link
-            to={`/profile/${post.uid}`}
-            className="text-sm md:text-lg mr-10"
-          >
+          <p>
             {post.firstname} -@{post.nickname}
-          </Link>
-          <p className="text-xs md:text-base">{2023 - post.era} years ago</p>
+          </p>
+          <p className="text-xs md:text-base">Il y a {2023 - post.era} ans</p>
         </div>
       </div>
       <p className="mx-5 my-5 md:text-xl">{post.content}</p>

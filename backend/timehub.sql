@@ -118,6 +118,9 @@ VALUES (
     ), (
         "Quoi, mon nez ?! Qu'est-ce qu'il a mon nez ?",
         2
+    ), (
+        "Dogecoin to the moon !!! ",
+        7
     );
 
 -- SELECT p.id, p.title, p.content, u.firstname, u.lastname, u.picture
