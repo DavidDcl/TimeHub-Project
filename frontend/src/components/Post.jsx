@@ -8,9 +8,9 @@ const Post = ({ post, setRefresh, refresh }) => {
     setRefresh(!refresh);
   };
   return (
-    <div className="flex flex-col rounded-[1.5rem] border-2 border-neutral mx-3 mb-5">
+    <div className="flex flex-col rounded-[1rem] border-2 border-neutral mx-3 mb-5">
       <div className="flex items-center gap-3 ml-5 mt-5">
-        <Link to={`/profile/${post.uid}`} className="text-sm md:text-lg mr-10">
+        <Link to={`/profile/${post.uid}`} className="text-sm md:text-lg mr-4">
           <img
             className="border-2 rounded-full border-primary w-12 h-12"
             src={`/${post.uid}.png`}
@@ -27,7 +27,7 @@ const Post = ({ post, setRefresh, refresh }) => {
         </div>
       </div>
       <p className="mx-5 my-5 md:text-xl">{post.content}</p>
-      <div className="flex items-center justify-between bg-neutral rounded-b-[1rem]">
+      <div className="flex items-center justify-between bg-neutral rounded-b-xl">
         <div className="flex gap-3 pl-3 py-1.5 ">
           <button>
             <svg
