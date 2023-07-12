@@ -1,8 +1,10 @@
--- Active: 1689174540931@@127.0.0.1@3306@timehub
+-- Active: 1688391395018@@127.0.0.1@3306@timehub
 
 DROP TABLE IF EXISTS `posts`;
 
 DROP TABLE IF EXISTS `users`;
+
+DROP TABLE IF EXISTS `comments`;
 
 CREATE TABLE
     `users` (
@@ -22,6 +24,18 @@ CREATE TABLE
         `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
         `author` INTEGER NOT NULL,
         PRIMARY KEY (`id`),
+        FOREIGN KEY (`author`) REFERENCES `users` (id)
+    );
+
+CREATE TABLE
+    `comments` (
+        `id` INTEGER NOT NULL AUTO_INCREMENT,
+        `content` TEXT NOT NULL,
+        `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
+        `post_id` INTEGER NOT NULL,
+        `author` INTEGER NOT NULL,
+        PRIMARY KEY (`id`),
+        FOREIGN KEY (`post_id`) REFERENCES `posts` (id),
         FOREIGN KEY (`author`) REFERENCES `users` (id)
     );
 
@@ -456,8 +470,15 @@ VALUES (
         7
     );
 
--- SELECT p.id, p.title, p.content, u.firstname, u.lastname, u.picture
+INSERT INTO
+    `comments` (`content`, `post_id`, `author`)
+VALUES ('test commentaire', 1, 7);
 
--- FROM posts p
-
--- JOIN users u ON  p.author = u.id
+SELECT
+    c.id,
+    c.content,
+    p.id as pid,
+    u.id as uid
+FROM comments c
+    JOIN posts p ON c.post_id = p.id
+    JOIN users u ON c.author = u.id;
