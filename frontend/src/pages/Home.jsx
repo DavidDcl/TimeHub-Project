@@ -7,6 +7,7 @@ const Home = () => {
   const [posts, setPosts] = useState(null);
   const [refresh, setRefresh] = useState(false);
   const [content, setContent] = useState("");
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -22,6 +23,7 @@ const Home = () => {
   const handleConnexion = () => {
     setModal(false);
     localStorage.setItem("modalState", "false");
+    setActive(!active);
   };
 
   const fetchData = async () => {
@@ -47,13 +49,21 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <div className="mt-4">
+      {active && (
+        <audio
+          className="hidden"
+          src="../../public/pornhub_intro.mp3"
+          controls={active}
+          autoPlay={active}
+        />
+      )}
       {modal ? (
         <div className="hero min-h-[80vh] bg-base-200">
           <div className="hero-content flex-col lg:flex-row-reverse">
             <div className="text-center lg:text-left">
-              <h1 className="text-5xl font-bold">Connecte toi !</h1>
-              <p className="py-6">
+              <h1 className="text-4xl font-bold">Connecte toi !</h1>
+              <p className="py-4">
                 {`Il est l'heure d'aller dans la 4 ème dimension pour retrouver
                 tes potos préférés !`}
               </p>
@@ -89,6 +99,14 @@ const Home = () => {
                   <button className="btn btn-primary" onClick={handleConnexion}>
                     Connexion
                   </button>
+                </div>
+                <div className="">
+                  <iframe
+                    src="https://giphy.com/embed/3o7aD2d7hy9ktXNDP2"
+                    width="100%"
+                    height="100%"
+                    allowFullScreen
+                  ></iframe>
                 </div>
               </div>
             </div>
