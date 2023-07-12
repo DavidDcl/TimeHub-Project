@@ -1,5 +1,5 @@
-const ChatPAgeId = () => {
-  return <div>ChatPageId</div>;
-};
+const ChatPageId = () => {
+  return <div>ChatPageId</div>
+}
 
-export default ChatPAgeId;
+export default ChatPageId
