@@ -98,7 +98,7 @@ const Home = () => {
           <div className="flex rounded-lg border-2 border-primary mx-3 mb-5">
             <div className="flex flex-col">
               <img
-                className="rounded-full w-12 h-12 ml-3 mt-3 mr-8"
+                className="border-2 rounded-full border-primary w-12 h-12 ml-3 mt-3 mr-8"
                 src="/1.png"
                 alt=""
               />
