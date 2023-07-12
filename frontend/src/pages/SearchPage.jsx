@@ -1,11 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import ProfileCard from "../components/ProfileCard"
 
 const SearchPage = () => {
   const [input, setInput] = useState("")
+  const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:8000/api/users")
+      .then((res) => res.json())
+      .then((resjson) => setUsers(resjson))
+  }, [])
 
   const handleSearch = () => {}
   return (
-    <div className="min-h-[80vh] flex flex-col items-center justify-between">
+    <div className="min-h-[80vh] flex flex-col items-center justify-start">
       <div className="flex justify-center mt-1">
         <div className="join">
           <input
@@ -23,6 +31,25 @@ const SearchPage = () => {
             Chercher
           </button>
         </div>
+      </div>
+      <div className="p-4 flex flex-col  gap-2 flex-grow w-full">
+        {users
+          .filter(
+            (elem) =>
+              input.length === 0 ||
+              elem.firstname
+                .toLocaleLowerCase()
+                .includes(input.toLocaleLowerCase()) ||
+              elem.lastname
+                .toLocaleLowerCase()
+                .includes(input.toLocaleLowerCase()) ||
+              elem.nickname
+                .toLocaleLowerCase()
+                .includes(input.toLocaleLowerCase())
+          )
+          .map((user) => (
+            <ProfileCard user={user} />
+          ))}
       </div>
     </div>
   )
