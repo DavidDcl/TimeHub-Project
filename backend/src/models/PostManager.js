@@ -20,7 +20,7 @@ class PostManager extends AbstractManager {
 
   insert(item) {
     return this.database.query(
-      `insert into ${this.table} (title, content) values (?,?)`,
+      `INSERT INTO ${this.table} (title, content, author) values (?,?,1)`,
       [item.title, item.content]
     )
   }
