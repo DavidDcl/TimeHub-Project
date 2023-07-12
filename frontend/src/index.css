@@ -43,3 +43,32 @@
     border-color: violet;
   }
 }
+
+
+@layer utilities {
+  /* Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #3b3b3b #e8e8e8;
+  }
+
+  /* Chrome, Edge and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background-color: grey;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #1af2aa;
+  }
+  @media (min-width: 993px) {
+    *::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
