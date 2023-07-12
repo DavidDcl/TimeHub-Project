@@ -2,6 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
+.border-gradient-animation {
+  border: 2px solid transparent;
+  border-radius: inherit;
+  animation: border-animation 5s linear infinite;
+}
+
+@keyframes border-animation {
+  0% {
+    border-color: violet;
+  }
+  10% {
+    border-color: turquoise;
+  }
+  20% {
+    border-color: violet;
+  }
+  30% {
+    border-color: turquoise;
+  }
+  40% {
+    border-color: violet;
+  }
+  50% {
+    border-color: turquoise;
+  }
+  60% {
+    border-color: violet;
+  }
+  70% {
+    border-color: turquoise;
+  }
+  80% {
+    border-color: violet;
+  }
+  90% {
+    border-color: turquoise;
+  }
+  100% {
+    border-color: violet;
+  }
+}
+
+
 @layer utilities {
   /* Firefox */
   * {

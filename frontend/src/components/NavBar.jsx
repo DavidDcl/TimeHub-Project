@@ -54,11 +54,12 @@ const NavBar = () => {
             className="w-16 border-2 border-primary rounded-full"
           />
         </div>
-        <Link to="/">
-          <div id="logo" className="ml-6">
+        <div id="logo" className="ml-6 relative rounded-lg overflow-hidden">
+          <Link to="/">
+            <div className="absolute inset-0 border-gradient-animation"></div>
             <img src={logo} alt="" className="w-36" />
-          </div>
-        </Link>
+          </Link>
+        </div>
       </div>
     </div>
   );
