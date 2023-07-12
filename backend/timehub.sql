@@ -33,7 +33,12 @@ INSERT INTO
         `lastname`,
         `era`
     )
-VALUES ('Albert', 'Einsten'), ('Leonard', 'De Vinci'), ('Napoléon', 'Bonaparte', 1769);
+VALUES (
+        'Loulou',
+        'Albert',
+        'Einstein',
+        '1900PC'
+    );
 
 INSERT INTO
     `posts` (`title`, `content`, `author`)
@@ -41,10 +46,6 @@ VALUES (
         'My first post',
         'Is really awesome',
         1
-    ), (
-        'My first post',
-        'Is really artistic',
-        6
     );
 
 -- SELECT p.id, p.title, p.content, u.firstname, u.lastname, u.picture
