@@ -17,7 +17,7 @@ const Post = ({ post, setRefresh, refresh }) => {
           <p className="text-sm md:text-lg mr-10">
             {post.firstname} -@{post.nickname}
           </p>
-          <p className="text-xs md:text-base">{2023 - post.era} years ago</p>
+          <p className="text-xs md:text-base">Il y a {2023 - post.era} ans</p>
         </div>
       </div>
       <p className="mx-5 my-5 md:text-xl">{post.content}</p>
