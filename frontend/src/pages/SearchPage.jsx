@@ -14,7 +14,7 @@ const SearchPage = () => {
   const handleSearch = () => {}
   return (
     <div className="min-h-[80vh] flex flex-col items-center justify-start">
-      <div className="flex justify-center mt-1">
+      <div className="flex justify-center mt-3">
         <div className="join">
           <input
             className="input input-bordered join-item dark:text-secondary"
