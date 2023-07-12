@@ -1,5 +1,5 @@
-import mysql from "mysql2/promise"
-import "dotenv/config"
+import mysql from 'mysql2/promise'
+import 'dotenv/config'
 
 const { DB_HOST, DB_USER, DB_PASSWORD, DB_NAME } = process.env
 
@@ -11,13 +11,13 @@ const pool = mysql.createPool({
 })
 
 pool.getConnection().catch(() => {
-  console.warn("Failed to get a DB connection.")
+  console.warn('Failed to get a DB connection.')
 })
 
 const models = {}
 
-import UserManager from "./UserManager.js"
-import PostManager from "./PostManager.js"
+import UserManager from './UserManager.js'
+import PostManager from './PostManager.js'
 
 models.post = new PostManager()
 models.post.setDatabase(pool)
