@@ -18,7 +18,6 @@ CREATE TABLE
 CREATE TABLE
     `posts` (
         `id` INTEGER NOT NULL AUTO_INCREMENT,
-        `title` VARCHAR(150) NOT NULL,
         `content` TEXT NOT NULL,
         `created_at` DATETIME DEFAULT CURRENT_TIMESTAMP(),
         `author` INTEGER NOT NULL,
@@ -106,10 +105,9 @@ VALUES (
     );
 
 INSERT INTO
-    `posts` (`title`, `content`, `author`)
+    `posts` (`content`, `author`)
 VALUES (
-        'My first post',
-        'Is really awesome',
+        'My first post is really relative',
         1
     );
 
