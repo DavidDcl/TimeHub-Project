@@ -1,13 +1,13 @@
-import { Link, useNavigate } from "react-router-dom"
+import { NavLink } from "react-router-dom";
 
 const BottomNav = () => {
   return (
     <div className="flex md:hidden">
-      <div className="btm-nav bg-base-100 border-t-2 border-t-primary ">
-        <Link to="/">
+      <div className="btm-nav bg-base-100 text-primary">
+        <NavLink to="/">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-12 w-12 bg-secondary rounded-full text-black p-1"
+            className="h-12 w-12 rounded-full text-secondary p-1"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -19,28 +19,27 @@ const BottomNav = () => {
               d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
             />
           </svg>
-        </Link>
+        </NavLink>
 
-        <Link to="/search">
+        <NavLink to="/search">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-12 w-12 bg-secondary rounded-full text-black p-1"
-            fill="none"
+            className="h-12 w-12 rounded-full p-1"
             viewBox="-2 -3 28 28"
-            stroke="currentColor"
+            stroke="hsl(var(--s))"
           >
             <path
               xmlns="http://www.w3.org/2000/svg"
               d="M9.08 6.10352e-05C4.56875 6.10352e-05 0.919998 3.64881 0.919998 8.16006C0.919998 12.6713 4.56875 16.3201 9.08 16.3201C10.6906 16.3201 12.1812 15.8476 13.445 15.0451L19.34 20.9401L21.38 18.9001L15.56 13.0951C16.6062 11.7226 17.24 10.0219 17.24 8.16006C17.24 3.64881 13.5912 6.10352e-05 9.08 6.10352e-05ZM9.08 1.92006C12.5356 1.92006 15.32 4.70444 15.32 8.16006C15.32 11.6157 12.5356 14.4001 9.08 14.4001C5.62437 14.4001 2.84 11.6157 2.84 8.16006C2.84 4.70444 5.62437 1.92006 9.08 1.92006Z"
-              fill="black"
+              fill="hsl(var(--s))"
             />
           </svg>
-        </Link>
+        </NavLink>
 
         <button>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-12 w-12 bg-secondary rounded-full text-black p-1"
+            className="h-12 w-12 rounded-full text-secondary p-1"
             fill="none"
             viewBox="-1 0 28 25"
             stroke="currentColor"
@@ -53,10 +52,10 @@ const BottomNav = () => {
           </svg>
         </button>
 
-        <Link to="/chatpage">
+        <NavLink to="/chatpage">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="h-12 w-12 bg-secondary rounded-full text-black p-1"
+            className="h-12 w-12 rounded-full text-secondary p-1"
             fill="none"
             viewBox="-1 -2 25 25"
             stroke="currentColor"
@@ -67,10 +66,10 @@ const BottomNav = () => {
               fill="black"
             />
           </svg>
-        </Link>
+        </NavLink>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BottomNav
+export default BottomNav;

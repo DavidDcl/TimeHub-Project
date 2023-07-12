@@ -7,6 +7,7 @@ import userLandscape1 from "../assets/Landscapes/1.jpg";
 import userLandscape2 from "../assets/Landscapes/2.jpg";
 
 import Post from "../components/Post";
+import SideBar from "../components/SideBar";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState();
@@ -28,7 +29,7 @@ const ProfilePage = () => {
       })
       .catch((err) => console.error(err));
 
-    fetch(`http://localhost:8000/api/posts/`)
+    fetch(`http://localhost:8000/api/posts`)
       .then((response) => {
         if (!response.ok) setIsValid2(false);
         return response.json();
@@ -43,74 +44,77 @@ const ProfilePage = () => {
   console.log(posts);
 
   return (
-    <div>
-      {isLoading1 && isLoading2 && <h1>Chargement en cours</h1>}
-      {!isValid1 && !isValid2 && <h1>Aucun profil correspondant</h1>}
-      {isValid1 && !isLoading1 && isValid2 && !isLoading2 && (
-        <>
-          <div
-            className="m-3
+    <div className="lg:flex">
+      <SideBar />
+      <div>
+        {isLoading1 && isLoading2 && <h1>Chargement en cours</h1>}
+        {!isValid1 && !isValid2 && <h1>Aucun profil correspondant</h1>}
+        {isValid1 && !isLoading1 && isValid2 && !isLoading2 && (
+          <>
+            <div
+              className="m-3
           "
-          >{`${profile.firstname} @${profile.nickname}`}</div>
-          <div className="relative">
+            >{`${profile.firstname} @${profile.nickname}`}</div>
+            <div className="relative">
+              <div>
+                {id == 1 ? (
+                  <img
+                    className="w-full h-36"
+                    src={userLandscape1}
+                    alt="Einstein"
+                  />
+                ) : (
+                  <img
+                    className="w-full h-36"
+                    src={userLandscape2}
+                    alt="Cleopatre"
+                  />
+                )}
+              </div>
+              <div className="absolute left-0 -bottom-12">
+                {id == 1 ? (
+                  <img src={userImage1} alt="Einstein" />
+                ) : (
+                  <img src={userImage2} alt="Cleopatre" />
+                )}
+              </div>
+            </div>
+            <div className="mt-12 ml-3 mb-2 text-lg">
+              {profile.firstname} {profile.lastname}
+            </div>
+            <div className="m-3">
+              {id == 1 ? (
+                <p>
+                  Génie, découvreur de la théorie de la relativité, prix Nobel
+                  de physique
+                </p>
+              ) : (
+                <p>Reine du Nil, beauté somptueuse, cat loveuse</p>
+              )}
+            </div>
+
             <div>
               {id == 1 ? (
-                <img
-                  className="w-full h-36"
-                  src={userLandscape1}
-                  alt="Einstein"
-                />
+                <div>
+                  {posts
+                    .filter((post) => post.uid === 1)
+                    .map((post) => (
+                      <Post key={post.id} post={post} />
+                    ))}
+                </div>
               ) : (
-                <img
-                  className="w-full h-36"
-                  src={userLandscape2}
-                  alt="Cleopatre"
-                />
+                <div>
+                  {posts
+                    .filter((post) => post.uid === 2)
+                    .map((post) => (
+                      <Post key={post.id} post={post} />
+                    ))}
+                </div>
               )}
             </div>
-            <div className="absolute left-0 -bottom-12">
-              {id == 1 ? (
-                <img src={userImage1} alt="Einstein" />
-              ) : (
-                <img src={userImage2} alt="Cleopatre" />
-              )}
-            </div>
-          </div>
-          <div className="mt-12 ml-3 mb-2 text-lg">
-            {profile.firstname} {profile.lastname}
-          </div>
-          <div className="m-3">
-            {id == 1 ? (
-              <p>
-                Génie, découvreur de la théorie de la relativité, prix Nobel de
-                physique
-              </p>
-            ) : (
-              <p>Reine du Nil, beauté somptueuse, cat loveuse</p>
-            )}
-          </div>
-
-          <div>
-            {id == 1 ? (
-              <div>
-                {posts
-                  .filter((post) => post.uid === 1)
-                  .map((post) => (
-                    <Post key={post.id} post={post} />
-                  ))}
-              </div>
-            ) : (
-              <div>
-                {posts
-                  .filter((post) => post.uid === 2)
-                  .map((post) => (
-                    <Post key={post.id} post={post} />
-                  ))}
-              </div>
-            )}
-          </div>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </div>
   );
 };
