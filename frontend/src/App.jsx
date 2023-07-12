@@ -13,7 +13,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <NavBar />
-        <main className=" mb-[5rem]">
+        <main className="mb-[5rem]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/chatpage" element={<ChatPage />} />
