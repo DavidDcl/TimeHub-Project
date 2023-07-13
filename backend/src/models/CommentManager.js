@@ -24,6 +24,16 @@ class CommentManager extends AbstractManager {
       [post.content, post.post_id, 1]
     )
   }
-}
 
+  delete(id) {
+    return this.database.query(`DELETE FROM ${this.table} WHERE id = ?`, [id])
+  }
+
+  update(comment) {
+    return this.database.query(
+      `UPDATE ${this.table} SET content = ?, post_id = ?, author = ? where id = ?`,
+      [comment.content, comment.post_id, comment.author, comment.id]
+    )
+  }
+}
 export default CommentManager
