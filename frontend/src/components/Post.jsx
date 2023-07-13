@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useGlitch } from "react-powerglitch";
+import Comment from "./Comment";
 
 const Post = ({ post, setRefresh, refresh }) => {
   const [coms, setComs] = useState(null);
@@ -237,16 +238,7 @@ const Post = ({ post, setRefresh, refresh }) => {
             coms
               .filter((com) => com.pid === post.id)
               .map((com) => (
-                <div key={com.id} className="flex flex-col bg-neutral">
-                  <div className="flex items-center gap-2 ml-3 my-2">
-                    <img
-                      src={`/${com.uid}.png`}
-                      alt={`/${com.uid}.png`}
-                      className="h-10 w-10"
-                    />
-                    <p className="dark:text-base-100">{com.content}</p>
-                  </div>
-                </div>
+                <Comment key={com.id} com={com} fetchCom={fetchCom} />
               ))}
           <form
             className="flex items-center bg-neutral rounded-b-[0.8rem] gap-2"
