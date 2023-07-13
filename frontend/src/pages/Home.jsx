@@ -12,7 +12,7 @@ const Home = ({ setOk }) => {
 
   useEffect(() => {
     fetchData();
-  }, [refresh, posts]);
+  }, [refresh]);
 
   useEffect(() => {
     const storageModal = localStorage.getItem("modalState");
