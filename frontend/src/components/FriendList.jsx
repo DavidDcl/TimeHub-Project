@@ -12,7 +12,7 @@ const FriendsList = () => {
   }, []);
 
   return (
-    <div>
+    <div className="flex flex-col items-center">
       <h1 className="text-secondary text-xl mb-3">En Ligne :</h1>
       {data && (
         <Link to="/chatpage/1" className="pt-3" key={data[1].id}>
@@ -27,7 +27,7 @@ const FriendsList = () => {
           .map((user) => (
             <div className="pr-4" key={user.id}>
               <img
-                className="pt-3 mr-2"
+                className="pt-3"
                 src={`/${user.id}.png`}
                 alt={data.firstname}
               />
