@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import SideBar from "../components/SideBar"
+import FriendsList from "../components/FriendList"
 
 function Contact() {
   const [email, setEmail] = useState("")
@@ -27,8 +29,11 @@ function Contact() {
   }
   return (
     <div className="mt-3 flex justify-content">
+      <div id="1/3" className="lg:w-1/6  lg:flex">
+        <SideBar />
+      </div>
       <form
-        className="w-full flex flex-col items-center gap-5"
+        className="w-full flex flex-col items-center justify-center gap-5"
         onSubmit={handleSubmit}
       >
         <div className="form-control ">
@@ -77,8 +82,14 @@ function Contact() {
         <button type="subit" className="btn btn-secondary w-full max-w-xs">
           Et Hop!
         </button>
-        <ToastContainer />
       </form>
+      <div
+        id="3/3"
+        className="h-full hidden md:flex md:w-1/6 md:justify-end lg:h-[85vh] lg:overflow-y-auto lg:mt-4 lg:mb-4 "
+      >
+        <FriendsList />
+      </div>
+      <ToastContainer />
     </div>
   )
 }
