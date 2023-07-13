@@ -17,6 +17,13 @@ class CommentManager extends AbstractManager {
       [id]
     )
   }
+
+  insert(post) {
+    return this.database.query(
+      `INSERT INTO ${this.table} (content, post_id, author) values (?,?,?)`,
+      [post.content, post.post_id, 1]
+    )
+  }
 }
 
 export default CommentManager
