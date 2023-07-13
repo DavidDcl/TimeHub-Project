@@ -35,7 +35,7 @@ const SearchPage = () => {
             </button>
           </div>
         </div>
-        <div className="p-4 flex flex-col  gap-2 flex-grow w-full">
+        <div className="p-4 flex flex-col  gap-2 flex-grow w-full lg:overflow-y-auto lg:h-[80vh]">
           {users
             .filter(
               (elem) =>
@@ -50,9 +50,10 @@ const SearchPage = () => {
                   .toLocaleLowerCase()
                   .includes(input.toLocaleLowerCase())
             )
-            .map((user) => (
-              <ProfileCard key={user.id} user={user} />
-            ))}
+            .map(
+              (user) =>
+                user.id != 1 && <ProfileCard key={user.id} user={user} />
+            )}
         </div>
       </div>
     </div>

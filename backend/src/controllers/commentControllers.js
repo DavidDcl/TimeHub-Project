@@ -44,8 +44,47 @@ const add = (req, res) => {
     })
 }
 
+const destroy = (req, res) => {
+  models.comment
+    .delete(req.params.id)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404)
+      } else {
+        res.sendStatus(204)
+      }
+    })
+    .catch((err) => {
+      console.error(err)
+      res.sendStatus(500)
+    })
+}
+
+const edit = (req, res) => {
+  const post = req.body
+
+  // TODO validations (length, format...)
+
+  post.id = parseInt(req.params.id, 10)
+
+  models.comment
+    .update(post)
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404)
+      } else {
+        res.sendStatus(204)
+      }
+    })
+    .catch((err) => {
+      console.error(err)
+      res.sendStatus(500)
+    })
+}
 export default {
   browse,
   read,
   add,
+  destroy,
+  edit,
 }

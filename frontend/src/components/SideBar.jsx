@@ -1,53 +1,65 @@
 import { Link } from "react-router-dom";
+import { useGlitch } from "react-powerglitch";
 
 function SideBar() {
+  const glitch = useGlitch();
   return (
-    <div className="hidden lg:flex lg:flex-col lg:gap-3 lg:mx-3 lg:pr-3 lg:py-6">
+    <div className="hidden lg:flex lg:flex-col lg:items-center lg:gap-3 lg:mx-3 lg:pr-3 lg:pt-3">
       <div className="flex flex-col gap-3 h-1/2">
-        <Link to="/" className="flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-12 w-12 rounded-full text-secondary p-1"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
-            />
-          </svg>
-          <p>Accueil</p>
-        </Link>
-        <Link to="/chatpage" className="flex items-center gap-2">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-12 w-12 rounded-full text-secondary p-1"
-            fill="none"
-            viewBox="-1 -2 25 25"
-            stroke="currentColor"
-          >
-            <path
+        <span ref={glitch.ref}>
+          <Link to="/" className="flex items-center gap-2">
+            <svg
               xmlns="http://www.w3.org/2000/svg"
-              d="M11.5 0C5.20703 0 0.03125 4.07711 0.03125 9.17125C0.03125 12.1271 1.8125 14.7344 4.5 16.4019C4.49609 16.5007 4.5 16.6534 4.35938 17.135C4.18555 17.7298 3.8418 18.5725 3.125 19.5069L2.60938 20.1681L3.5 20.1825C6.58789 20.1951 8.37695 18.3281 8.65625 18.0263C9.56836 18.2131 10.5176 18.3425 11.5 18.3425C17.791 18.3425 22.9688 14.2654 22.9688 9.17125C22.9688 4.07711 17.791 0 11.5 0ZM11.5 0.8625C17.3574 0.8625 22.0312 4.61258 22.0312 9.17125C22.0312 13.7299 17.3574 17.48 11.5 17.48C10.498 17.48 9.52539 17.3686 8.60938 17.1637L8.32812 17.1063L8.14062 17.3219C8.14062 17.3219 6.69531 18.8205 4.39062 19.1763C4.80664 18.4898 5.12305 17.852 5.26562 17.365C5.46484 16.684 5.46875 16.215 5.46875 16.215V15.985L5.25 15.8556C2.63672 14.3319 0.96875 11.9043 0.96875 9.17125C0.96875 4.61258 5.64062 0.8625 11.5 0.8625Z"
-              fill="black"
+              className="h-12 w-12 rounded-full text-secondary p-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+              />
+            </svg>
+            <p>Accueil</p>
+          </Link>
+        </span>
+        <span ref={glitch.ref}>
+          <Link to="/chatpage" className="flex items-center gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-12 w-12 rounded-full text-secondary p-1"
+              fill="none"
+              viewBox="-1 -2 25 25"
+              stroke="currentColor"
+            >
+              <path
+                xmlns="http://www.w3.org/2000/svg"
+                d="M11.5 0C5.20703 0 0.03125 4.07711 0.03125 9.17125C0.03125 12.1271 1.8125 14.7344 4.5 16.4019C4.49609 16.5007 4.5 16.6534 4.35938 17.135C4.18555 17.7298 3.8418 18.5725 3.125 19.5069L2.60938 20.1681L3.5 20.1825C6.58789 20.1951 8.37695 18.3281 8.65625 18.0263C9.56836 18.2131 10.5176 18.3425 11.5 18.3425C17.791 18.3425 22.9688 14.2654 22.9688 9.17125C22.9688 4.07711 17.791 0 11.5 0ZM11.5 0.8625C17.3574 0.8625 22.0312 4.61258 22.0312 9.17125C22.0312 13.7299 17.3574 17.48 11.5 17.48C10.498 17.48 9.52539 17.3686 8.60938 17.1637L8.32812 17.1063L8.14062 17.3219C8.14062 17.3219 6.69531 18.8205 4.39062 19.1763C4.80664 18.4898 5.12305 17.852 5.26562 17.365C5.46484 16.684 5.46875 16.215 5.46875 16.215V15.985L5.25 15.8556C2.63672 14.3319 0.96875 11.9043 0.96875 9.17125C0.96875 4.61258 5.64062 0.8625 11.5 0.8625Z"
+                fill="black"
+              />
+            </svg>
+            <p>Messages</p>
+          </Link>
+        </span>
+        <span ref={glitch.ref}>
+          <Link to="/profile/1" className="flex items-center gap-4">
+            <img
+              className="h-10 w-10 border-2 border-primary rounded-full"
+              src="/public/1.png"
+              alt="Albert Einstein"
             />
-          </svg>
-          <p>Messages</p>
-        </Link>
-        <Link to="/profile/1" className="flex items-center gap-4">
-          <img
-            className="h-10 w-10"
-            src="/public/1.png"
-            alt="Albert Einstein"
-          />
-          Profil
-        </Link>
+            <span ref={glitch.ref}>Profil</span>
+          </Link>
+        </span>
       </div>
-      <div className="flex flex-col justify-end  h-1/2">
-        <Link to="/contact" className="flex items-center gap-4">
+      <div className="flex flex-col justify-end  h-1/2 pb-2">
+        <Link
+          ref={glitch.ref}
+          to="/contact"
+          className="flex items-center gap-4"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 64 64"
@@ -61,7 +73,7 @@ function SideBar() {
           </svg>
           <p>Contact</p>
         </Link>
-        <Link to="/about" className="flex items-center gap-4">
+        <Link ref={glitch.ref} to="/about" className="flex items-center gap-4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 30 30"

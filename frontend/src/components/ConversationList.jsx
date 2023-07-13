@@ -1,30 +1,35 @@
-import profile2 from "../../public/2.png";
 import { Link } from "react-router-dom";
 const ConversationList = () => {
   const conversations = [
     {
-      utilisateur: "Utilisateur2",
-      message: "Oui, et toi ?",
-      img: profile2,
+      utilisateur: "Cleopatra Patra",
+      pseudo: "Reine_Du_Nil",
+      message:
+        "Au revoir, Einstein. Que tes découvertes continuent d'éclairer le monde. Adieu !",
+      img: "/2.png",
     },
     {
-      utilisateur: "Utilisateur4",
-      message: "Je vais bien aussi, merci !",
+      utilisateur: "Lucy Magnon",
+      pseudo: "OubaOuba",
+      message: "Merci pour les tips sur le feu !",
       img: "/4.png",
     },
     {
-      utilisateur: "Utilisateur5",
-      message: "Qu'as-tu prévu pour aujourd'hui ?",
+      utilisateur: "Isaac Newton",
+      pseudo: "Pomme_dapi",
+      message: "Aux chiottes la troisième loi, be High !!",
       img: "/5.png",
     },
     {
-      utilisateur: "Utilisateur6",
-      message: "Rien de spécial, juste du travail.",
+      utilisateur: "Napoléon Bonaparte",
+      pseudo: "Grand-Homme",
+      message: "Je t'ai déjà dit c'est pas la taille qui compte",
       img: "/6.png",
     },
     {
-      utilisateur: "Utilisateur7",
-      message: "Bon courage !",
+      utilisateur: "Elon Musk",
+      pseudo: "Tothemoon",
+      message: "BUUULLLL RRUUUUNNN !!!",
       img: "/7.png",
     },
   ];
@@ -54,6 +59,9 @@ const ConversationList = () => {
                       <p className="dark:text-secondary font-semibold ml-2">
                         {conversation.utilisateur}
                       </p>
+                      <p className="dark:text-primary font-semibold ml-2">
+                        @{conversation.pseudo}
+                      </p>
                     </div>
 
                     <p>{conversation.message}</p>
@@ -70,6 +78,9 @@ const ConversationList = () => {
                   />
                   <p className="dark:text-secondary font-semibold ml-2">
                     {conversation.utilisateur}
+                  </p>
+                  <p className="dark:text-primary font-semibold ml-2">
+                    @{conversation.pseudo}
                   </p>
                 </div>
 

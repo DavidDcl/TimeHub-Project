@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Post from "../components/Post";
 import FriendsList from "../components/FriendList";
 import SideBar from "./../components/SideBar";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = ({ setOk }) => {
   const [modal, setModal] = useState(true);
@@ -9,9 +11,13 @@ const Home = ({ setOk }) => {
   const [refresh, setRefresh] = useState(false);
   const [content, setContent] = useState("");
   const [active, setActive] = useState(false);
+  const [username, setUsername] = useState("");
+  const [userExists, setUserExists] = useState(false);
 
   useEffect(() => {
-    fetchData();
+    fetch("http://localhost:8000/api/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
   }, [refresh]);
 
   useEffect(() => {
@@ -22,19 +28,21 @@ const Home = ({ setOk }) => {
   }, []);
 
   const handleConnexion = () => {
-    setModal(false);
-    localStorage.setItem("modalState", "false");
-    setActive(!active);
-    setOk(true);
+    if (userExists) {
+      setModal(false);
+      localStorage.setItem("modalState", "false");
+      setActive(!active);
+      setOk(true);
+    } else {
+      toast.error("User does not exist");
+    }
   };
 
-  const fetchData = async () => {
-    await fetch("http://localhost:8000/api/posts")
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
+  const handleContent = (e) => {
+    setContent(e.target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     if (content) {
       e.preventDefault();
       const requestOptions = {
@@ -50,8 +58,25 @@ const Home = ({ setOk }) => {
     }
   };
 
+  const checkUserExists = async () => {
+    try {
+      const response = await fetch(`http://localhost:8000/api/users`);
+      const data = await response.json();
+
+      if (data[0].nickname === username) {
+        setUserExists(username);
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    checkUserExists();
+  }, [username]);
+
   return (
-    <div className="mt-4">
+    <div>
       {active && (
         <audio
           className="hidden"
@@ -61,9 +86,9 @@ const Home = ({ setOk }) => {
         />
       )}
       {modal ? (
-        <div className="hero min-h-[80vh] bg-base-200">
-          <div className="hero-content flex-col lg:flex-row-reverse">
-            <div className="text-center lg:text-left">
+        <div className="hero min-h-[80vh] bg-base-200 ">
+          <div className="hero-content flex-col  lg:flex lg:flex-col">
+            <div className="text-center  lg:text-center">
               <h1 className="text-4xl font-bold">Connecte toi !</h1>
               <p className="py-4">
                 {`Il est l'heure d'aller dans la 4 ème dimension pour retrouver
@@ -82,6 +107,8 @@ const Home = ({ setOk }) => {
                     type="text"
                     placeholder="nom d'utilisateur"
                     className="input input-bordered dark:text-secondary"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
                 <div className="form-control">
@@ -116,58 +143,63 @@ const Home = ({ setOk }) => {
         </div>
       ) : (
         <>
-          <div className="lg:flex">
-            <SideBar />
-            <div className="mt-4">
-              <div className="flex">
-                <div className="w-full">
-                  <div className="flex rounded-lg border-2 border-primary mx-3 mb-5">
-                    <div className="flex flex-col">
-                      <img
-                        className="rounded-full w-12 h-12 ml-3 mt-3 mr-8"
-                        src="/1.png"
-                        alt=""
-                      />
-                    </div>
-                    <form className="w-full" onSubmit={handleSubmit}>
-                      <div className="flex flex-col mt-3">
-                        <textarea
-                          className="bg-transparent flex-grow mt-3 border-none outline-none resize-none"
-                          placeholder="Qu'as-tu en tête ? ..."
-                          value={content}
-                          onChange={(e) => setContent(e.target.value)}
-                        />
-                        <div className="flex justify-end">
-                          <button
-                            className="mr-3 mb-3 text-secondary bg-accent rounded-lg px-3 py-1"
-                            type="submit"
-                          >
-                            Post
-                          </button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
-                  <div>
-                    {posts &&
-                      posts.map((post) => (
-                        <Post
-                          key={post.id}
-                          post={post}
-                          refresh={refresh}
-                          setRefresh={setRefresh}
-                        />
-                      ))}
-                  </div>
+          <div className="lg:flex lg:justify-between lg:gap-3  ">
+            <div id="1/3" className="lg:w-1/6  lg:flex">
+              <SideBar />
+            </div>
+            <div
+              id="2/3"
+              className="mt-4 md:w-5/6 lg:h-[87vh] lg:overflow-y-auto "
+            >
+              <div className="flex rounded-lg border-2 border-primary mx-3 mb-5">
+                <div className="flex flex-col">
+                  <img
+                    className="rounded-full w-12 h-12 ml-3 mt-3 mr-8 border-2 border-primary "
+                    src="/1.png"
+                    alt=""
+                  />
                 </div>
+                <form className="w-full" onSubmit={handleSubmit}>
+                  <div className="flex flex-col mt-3">
+                    <textarea
+                      className="bg-transparent flex-grow mt-3 border-none outline-none resize-none"
+                      placeholder="Qu'as-tu en tête ? ..."
+                      value={content}
+                      onChange={handleContent}
+                    />
+                    <div className="flex justify-end">
+                      <button
+                        className="mr-3 mb-3 text-secondary bg-accent rounded-lg px-3 py-1"
+                        type="submit"
+                      >
+                        Post
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div>
+                {posts &&
+                  posts.map((post) => (
+                    <Post
+                      key={post.id}
+                      post={post}
+                      refresh={refresh}
+                      setRefresh={setRefresh}
+                    />
+                  ))}
               </div>
             </div>
-            <div className="w-full max-w-[7rem]  justify-end ml-3 h-full hidden md:flex">
+            <div
+              id="3/3"
+              className="h-full hidden md:flex md:w-1/6 md:justify-end lg:h-[87vh] lg:overflow-y-auto lg:mt-4"
+            >
               <FriendsList />
             </div>
           </div>
         </>
       )}
+      <ToastContainer />
     </div>
   );
 };

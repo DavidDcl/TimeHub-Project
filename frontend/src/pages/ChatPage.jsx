@@ -5,7 +5,7 @@ const ChatPage = () => {
   return (
     <div className="lg:flex">
       <SideBar />
-      <div className="w-full">
+      <div className="w-full lg:h-[90vh]">
         <ConversationList />
       </div>
     </div>

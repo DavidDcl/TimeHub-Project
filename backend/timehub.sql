@@ -1,10 +1,8 @@
--- Active: 1689174540931@@127.0.0.1@3306@timehub
+DROP TABLE IF EXISTS `comments`;
 
 DROP TABLE IF EXISTS `posts`;
 
 DROP TABLE IF EXISTS `users`;
-
-DROP TABLE IF EXISTS `comments`;
 
 CREATE TABLE
     `users` (
@@ -35,7 +33,7 @@ CREATE TABLE
         `post_id` INTEGER NOT NULL,
         `author` INTEGER NOT NULL,
         PRIMARY KEY (`id`),
-        FOREIGN KEY (`post_id`) REFERENCES `posts` (id),
+        FOREIGN KEY (`post_id`) REFERENCES `posts` (id) ON DELETE CASCADE,
         FOREIGN KEY (`author`) REFERENCES `users` (id)
     );
 

@@ -8,6 +8,7 @@ import userLandscape2 from "../assets/Landscapes/2.jpg";
 
 import Post from "../components/Post";
 import SideBar from "../components/SideBar";
+import FriendsList from "../components/FriendList";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState();
@@ -43,9 +44,11 @@ const ProfilePage = () => {
   }, [id]);
 
   return (
-    <div className="lg:flex">
-      <SideBar />
-      <div>
+    <div className="lg:flex lg:justify-between lg:gap-3">
+      <div id="1/3 " className="flex lg:w-1/6 ">
+        <SideBar />
+      </div>
+      <div id="2/3" className="lg:w-5/6 lg:overflow-y-auto lg:h-[85vh] mt-4">
         {isLoading1 && isLoading2 && <h1>Chargement en cours</h1>}
         {!isValid1 && !isValid2 && <h1>Aucun profil correspondant</h1>}
         {isValid1 && !isLoading1 && isValid2 && !isLoading2 && (
@@ -113,6 +116,12 @@ const ProfilePage = () => {
             </div>
           </>
         )}
+      </div>
+      <div
+        id="3/3"
+        className="lg:w-1/6 lg:h-[85vh] lg:overflow-y-auto lg:mt-4  "
+      >
+        <FriendsList />
       </div>
     </div>
   );
