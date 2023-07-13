@@ -15,8 +15,10 @@ const Home = ({ setOk }) => {
   const [userExists, setUserExists] = useState(false)
 
   useEffect(() => {
-    fetchData()
-  }, [refresh])
+    fetch("http://localhost:8000/api/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
+  }, [refresh]);
 
   useEffect(() => {
     const storageModal = localStorage.getItem('modalState')
@@ -40,13 +42,11 @@ const Home = ({ setOk }) => {
     }
   }
 
-  const fetchData = async () => {
-    await fetch('http://localhost:8000/api/posts')
-      .then((res) => res.json())
-      .then((data) => setPosts(data))
-  }
+  const handleContent = (e) => {
+    setContent(e.target.value);
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     if (content) {
       e.preventDefault()
       const requestOptions = {
@@ -162,7 +162,7 @@ const Home = ({ setOk }) => {
                           className='bg-transparent flex-grow mt-3 border-none outline-none resize-none'
                           placeholder="Qu'as-tu en tête ? ..."
                           value={content}
-                          onChange={(e) => setContent(e.target.value)}
+                          onChange={handleContent}
                         />
                         <div className='flex justify-end'>
                           <button
