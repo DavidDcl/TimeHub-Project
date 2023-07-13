@@ -1,4 +1,6 @@
 import pp from "../../public/2.png";
+import FriendsList from "../components/FriendList";
+import SideBar from "../components/SideBar";
 
 const ChatPageId = () => {
   const conversation = [
@@ -70,50 +72,61 @@ const ChatPageId = () => {
     },
   ];
   return (
-    <div className="flex flex-col">
-      <div
-        id=" en tete "
-        className="w-full flex gap-3 border-b-2 border-secondary"
-      >
-        <div id="Pp" className="w-20 pb-2">
-          <img src={pp} alt="Cleo" />
-        </div>
-        <div id="peusdo " className="flex gap-2 text-2xl">
-          <h1>Cleopatre</h1>
-          <p>@Reine_Du_Nil</p>
-        </div>
+    <div className="lg:flex lg:justify-between lg:gap-3  ">
+      <div id="1/3 " className="flex lg:w-1/6 ">
+        <SideBar />
       </div>
-      <div id="conversation" className="flex flex-col m-2 gap-3">
-        {conversation.map((elem) => (
-          <div
-            key={elem.id}
-            className={`${
-              elem.id % 2 === 0
-                ? "flex justify-end ml-3"
-                : "flex justify-start mr-3"
-            }`}
-          >
-            <p
+      <div className="flex flex-col lg:w-5/6 lg:h-[85vh] lg:overflow-y-auto lg:mt-4">
+        <div
+          id=" en tete "
+          className="w-full flex gap-3 border-b-2 border-secondary my-2"
+        >
+          <div id="Pp" className="w-20 pb-2">
+            <img src={pp} alt="Cleo" />
+          </div>
+          <div id="peusdo " className="flex gap-2 text-2xl">
+            <h1>Cleopatre</h1>
+            <p>@Reine_Du_Nil</p>
+          </div>
+        </div>
+        <div id="conversation" className="flex flex-col m-2 gap-3">
+          {conversation.map((elem) => (
+            <div
+              key={elem.id}
               className={`${
                 elem.id % 2 === 0
-                  ? "flex py-3 px-2 bg-accent rounded-xl"
-                  : "flex py-3 px-2 rounded-xl bg-primary"
+                  ? "flex justify-end ml-3"
+                  : "flex justify-start mr-3"
               }`}
             >
-              {elem.message}
-            </p>
-          </div>
-        ))}
+              <p
+                className={`${
+                  elem.id % 2 === 0
+                    ? "flex py-3 px-2 bg-accent rounded-xl"
+                    : "flex py-3 px-2 rounded-xl bg-primary"
+                }`}
+              >
+                {elem.message}
+              </p>
+            </div>
+          ))}
+        </div>
+        <div
+          id=" message "
+          className="flex w-full 11/12 justify-center bg-base-100 sticky bottom-16   lg:bottom-0 "
+        >
+          <input
+            type="text"
+            placeholder="Ecris le message"
+            className=" bg-base-100 border rounded-lg border-secondary p-2 mt-3 w-11/12 "
+          />
+        </div>
       </div>
       <div
-        id=" message "
-        className="flex w-full 11/12 justify-center bg-base-100 sticky bottom-16   "
+        id="3/3"
+        className="hidden lg:w-1/6 lg:h-[85vh] lg:overflow-y-auto lg:mt-4  lg:flex"
       >
-        <input
-          type="text"
-          placeholder="Ecris le message"
-          className=" bg-base-100 border rounded-lg border-secondary p-2 mt-3 w-11/12 "
-        />
+        <FriendsList />
       </div>
     </div>
   );
