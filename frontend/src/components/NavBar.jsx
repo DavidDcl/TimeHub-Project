@@ -29,7 +29,7 @@ const NavBar = () => {
             </svg>
           </Link>
           <details className="dropdown dropdown-end ">
-            <summary className="m-1 btn hover:bg-transparent hover:border-transparent border-transparent bg-transparent">
+            <summary className="m-1 btn hover:bg-transparent bg-transparent hover:border-transparent border-transparent">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-12 w-12 rounded-full text-secondary p-1"
