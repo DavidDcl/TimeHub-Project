@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useGlitch } from "react-powerglitch";
 
 const Post = ({ post, setRefresh, refresh }) => {
   const [coms, setComs] = useState(null);
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
+  const glitch = useGlitch();
 
   const fetchCom = () => {
     fetch(`http://localhost:8000/api/comments`)
@@ -86,7 +88,10 @@ const Post = ({ post, setRefresh, refresh }) => {
           <p className="dark:text-secondary">
             {post.firstname} -@{post.nickname}
           </p>
-          <p className="dark:text-primary text-xs md:text-base">
+          <p
+            ref={glitch.ref}
+            className="dark:text-primary text-xs md:text-base"
+          >
             Il y a {2023 - post.era} ans
           </p>
         </div>
