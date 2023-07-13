@@ -76,7 +76,7 @@ const Home = ({ setOk }) => {
   }, [username]);
 
   return (
-    <div className="mt-4">
+    <div>
       {active && (
         <audio
           className="hidden"
@@ -144,13 +144,12 @@ const Home = ({ setOk }) => {
       ) : (
         <>
           <div className="lg:flex lg:justify-between lg:gap-3  ">
-            {/* // */}
             <div id="1/3" className="lg:w-1/6  lg:flex">
               <SideBar />
             </div>
             <div
               id="2/3"
-              className="mt-4 md:w-5/6 lg:h-[85vh] lg:overflow-y-auto "
+              className="mt-4 md:w-5/6 lg:h-[87vh] lg:overflow-y-auto "
             >
               <div className="flex rounded-lg border-2 border-primary mx-3 mb-5">
                 <div className="flex flex-col">
@@ -166,7 +165,7 @@ const Home = ({ setOk }) => {
                       className="bg-transparent flex-grow mt-3 border-none outline-none resize-none"
                       placeholder="Qu'as-tu en tête ? ..."
                       value={content}
-                      onChange={(e) => setContent(e.target.value)}
+                      onChange={handleContent}
                     />
                     <div className="flex justify-end">
                       <button
@@ -193,7 +192,7 @@ const Home = ({ setOk }) => {
             </div>
             <div
               id="3/3"
-              className="h-full hidden md:flex md:w-1/6 md:justify-end lg:h-[85vh] lg:overflow-y-auto lg:mt-4 lg:mb-4 "
+              className="h-full hidden md:flex md:w-1/6 md:justify-end lg:h-[87vh] lg:overflow-y-auto lg:mt-4"
             >
               <FriendsList />
             </div>

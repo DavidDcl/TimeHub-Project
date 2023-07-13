@@ -50,7 +50,6 @@ const Post = ({ post, setRefresh, refresh }) => {
     }
   };
 
-  console.log(coms);
   return (
     <div className="flex flex-col rounded-[1rem] border-2 border-neutral mx-3 mb-5">
       <div className="flex items-center gap-3 ml-5 mt-5">
@@ -73,7 +72,7 @@ const Post = ({ post, setRefresh, refresh }) => {
       <p className="mx-5 my-5 md:text-xl ">{post.content}</p>
       <div
         className={`flex items-center justify-between bg-neutral ${
-          openCom ? "rounded-none" : "rounded-b-[1rem]"
+          openCom ? "rounded-none" : "rounded-b-[0.8rem]"
         }`}
       >
         <div className="flex gap-3 pl-3 py-1.5 ">
@@ -224,7 +223,7 @@ const Post = ({ post, setRefresh, refresh }) => {
                 </div>
               ))}
           <form
-            className="flex items-center bg-neutral rounded-b-[1rem] gap-2"
+            className="flex items-center bg-neutral rounded-b-[0.8rem] gap-2"
             onSubmit={handleSubmit}
           >
             <input
@@ -232,7 +231,7 @@ const Post = ({ post, setRefresh, refresh }) => {
               value={comContent}
               placeholder="Ecris ici..."
               onChange={handleComContent}
-              className="w-1/2 h-8 bg-base-100 pl-1 ml-3 my-1 border-2 border-primary rounded-lg"
+              className="w-1/2 h-8 bg-base-100 pl-2 ml-3 my-1 border-2 border-primary rounded-lg"
             />
             <button className="h-8 border-2 border-base-100 rounded-lg px-2 text-base-100 font-bold">
               Send
