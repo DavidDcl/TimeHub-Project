@@ -17,6 +17,7 @@ const ProfilePage = () => {
   const [isLoading1, setIsLoading1] = useState(true);
   const [isLoading2, setIsLoading2] = useState(true);
   const { id } = useParams();
+
   useEffect(() => {
     fetch(`http://localhost:8000/api/users/${id}`)
       .then((response) => {
@@ -40,8 +41,6 @@ const ProfilePage = () => {
       })
       .catch((err) => console.error(err));
   }, [id]);
-  console.log(profile);
-  console.log(posts);
 
   return (
     <div className="lg:flex">
@@ -52,7 +51,7 @@ const ProfilePage = () => {
         {isValid1 && !isLoading1 && isValid2 && !isLoading2 && (
           <>
             <div
-              className="m-3
+              className="m-3 
           "
             >{`${profile.firstname} @${profile.nickname}`}</div>
             <div className="relative">

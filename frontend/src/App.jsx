@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 import NavBar from "./components/NavBar";
 import BottomNav from "./components/BottomNav";
@@ -7,10 +8,10 @@ import ChatPage from "./pages/ChatPage";
 import ChatPageId from "./pages/ChatPageId";
 import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
-import { useState } from "react";
 
 const App = () => {
   const [ok, setOK] = useState(false);
+
   return (
     <>
       <BrowserRouter>

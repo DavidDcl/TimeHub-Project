@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 const Post = ({ post, setRefresh, refresh }) => {
   const [coms, setComs] = useState(null);
+  const [animationParent] = useAutoAnimate();
+
   useEffect(() => {
     fetch(`http://localhost:8000/api/comments`)
       .then((res) => res.json())
@@ -41,9 +43,11 @@ const Post = ({ post, setRefresh, refresh }) => {
     }
   };
 
-  console.log(coms);
   return (
-    <div className="flex flex-col rounded-[1rem] border-2 border-neutral mx-3 mb-5">
+    <div
+      ref={animationParent}
+      className="flex flex-col rounded-[1rem] border-2 border-neutral mx-3 mb-5"
+    >
       <div className="flex items-center gap-3 ml-5 mt-5">
         <Link to={`/profile/${post.uid}`} className="text-sm md:text-lg mr-4">
           <img
@@ -162,7 +166,7 @@ const Post = ({ post, setRefresh, refresh }) => {
             coms
               .filter((com) => com.pid === post.id)
               .map((com) => (
-                <div key={com.id} className="flex flex-col bg-neutral">
+                <div key={com.id} className=" flex flex-col bg-neutral">
                   <div className="flex items-center gap-2 ml-3 my-2">
                     <img
                       src={`/${com.uid}.png`}
