@@ -9,66 +9,73 @@ const ChatPageId = () => {
     { id: 3, message: "Je vais bien aussi, merci !" },
     {
       id: 4,
-      message: "Qu'as-tu prévu pour aujourd'hui ?",
+      message:
+        "Dis-moi, Cléopâtre, j'ai toujours été fasciné par l'Égypte antique. Comment était la vie à cette époque ?",
     },
     {
       id: 5,
-      message: "Rien de spécial, juste du travail.",
+      message:
+        "Ah, l'Égypte antique était un monde d'une grande richesse culturelle et d'innovations technologiques. Nous avons développé l'agriculture, l'architecture et les arts d'une manière remarquable.",
     },
-    { id: 6, message: "Bon courage !" },
+    {
+      id: 6,
+      message:
+        "C'est vraiment impressionnant. J'ai consacré ma vie à comprendre les lois de l'univers, en particulier la relativité. Comment penses-tu que tes connaissances en politique et en leadership ont influencé ton époque ?",
+    },
     {
       id: 7,
-      message: "Merci ! Tu as des projets pour aujourd'hui ?",
+      message:
+        "En tant que reine d'Égypte, j'ai cherché à maintenir la stabilité politique et à améliorer la vie de mes sujets. J'ai également été une grande amatrice des arts et des sciences, encourageant les échanges intellectuels et le développement de nouvelles idées.",
     },
     {
       id: 8,
-      message: "Je vais faire du shopping avec des amis  .",
+      message:
+        "C'est admirable. Nous partageons tous deux une passion pour la connaissance et l'exploration. Quelles sont les découvertes scientifiques ou philosophiques qui t'ont le plus marquée ?",
     },
     {
       id: 9,
-      message: "Ça semble amusant ! Profite bien !",
+      message:
+        "Les travaux d'Archimède et d'Euclide étaient très influents à mon époque. J'ai également été fascinée par l'astronomie et l'étude des étoiles. Et toi, quelles sont tes découvertes scientifiques les plus importantes ?",
     },
-    { id: 10, message: "Merci, je le ferai !" },
+    {
+      id: 10,
+      message:
+        "Ma théorie de la relativité restreinte et générale a été une avancée majeure dans notre compréhension de l'espace, du temps et de la gravité. Cela a ouvert de nouvelles perspectives sur l'univers et a eu des applications pratiques dans la technologie moderne.",
+    },
     {
       id: 11,
-      message: "Tu as vu le dernier film qui est sorti ?",
+      message:
+        "C'est fascinant. Nos contributions respectives ont laissé une empreinte dans l'Histoire. Einstein, je suis curieuse de savoir comment tu envisages l'avenir de la science et de l'humanité.",
     },
     {
       id: 12,
-      message: "Non, pas encore. Tu me le recommandes ?",
+      message:
+        "Je crois en un avenir où la science continuera à nous aider à résoudre les défis mondiaux, tels que les énergies renouvelables, la santé et la préservation de notre planète. La collaboration internationale et la curiosité humaine sont essentielles pour avancer.",
     },
     {
       id: 13,
-      message: "Oui, c'était génial ! Je te le recommande.",
+      message:
+        "Je suis d'accord. La curiosité et l'échange d'idées sont des piliers de la progression de la société. Nous pouvons tous contribuer à un avenir meilleur en embrassant le savoir et en travaillant ensemble.",
     },
     {
       id: 14,
-      message: "Super, je vais le regarder alors.",
+      message:
+        "Absolument, Cléopâtre. Merci pour cette conversation enrichissante. Je suis convaincu que nos héritages respectifs continueront d'inspirer les générations futures.",
     },
     {
       id: 15,
-      message: "Tu me diras ce que tu en penses !",
+      message:
+        "Merci à toi aussi, Einstein. Nos chemins se croisent à travers le temps, et il est fascinant de voir comment nos visions du monde se complètent. Je te souhaite le meilleur dans tes recherches et tes explorations scientifiques.",
     },
     {
       id: 16,
-      message: "Bien sûr, je te ferai un retour.",
+      message:
+        "Merci, Cléopâtre. Prends soin de toi et de ton royaume. Puissions-nous tous continuer à élargir nos horizons et à repousser les frontières de la connaissance. Au revoir !",
     },
     {
       id: 17,
-      message: "Merci, j'attends avec impatience !",
-    },
-    { id: 18, message: "De rien, c'est avec plaisir !" },
-    {
-      id: 19,
-      message: "Au fait, as-tu des plans pour le week-end ?",
-    },
-    {
-      id: 20,
-      message: "Oui, je vais rendre visite à ma famille.",
-    },
-    {
-      id: 21,
-      message: "C'est génial ! Profite de ce moment.",
+      message:
+        "Au revoir, Einstein. Que tes découvertes continuent d'éclairer le monde. Adieu !",
     },
   ];
   return (
