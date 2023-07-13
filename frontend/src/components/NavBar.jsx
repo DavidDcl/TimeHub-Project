@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import pp from "../../public/1.png";
 import logo from "../assets/logo.png";
 
-const NavBar = () => {
+const NavBar = ({ ok }) => {
   return (
     <div className="md:flex md:justify-center">
       <div
@@ -47,13 +47,17 @@ const NavBar = () => {
         id="nav tel"
         className="flex items-center justify-between border-b-2 border-primary p-3 md:hidden"
       >
-        <div id="pp" className="flex flex-initial">
-          <img
-            src={pp}
-            alt=""
-            className="w-16 border-2 border-primary rounded-full"
-          />
-        </div>
+        {ok && (
+          <Link to="/profile/1" className="flex items-center gap-4">
+            <div id="pp" className="flex flex-initial">
+              <img
+                src={pp}
+                alt=""
+                className="w-16 border-2 border-primary rounded-full"
+              />
+            </div>
+          </Link>
+        )}
         <div id="logo" className="ml-6 relative rounded-lg overflow-hidden">
           <Link to="/">
             <div className="absolute inset-0 border-gradient-animation"></div>

@@ -6,66 +6,66 @@ const ChatPageId = () => {
     { id: 2, message: "Oui, et toi ?" },
     { id: 3, message: "Je vais bien aussi, merci !" },
     {
-      id: 3,
+      id: 4,
       message: "Qu'as-tu prévu pour aujourd'hui ?",
     },
     {
-      id: 4,
+      id: 5,
       message: "Rien de spécial, juste du travail.",
     },
-    { id: 5, message: "Bon courage !" },
+    { id: 6, message: "Bon courage !" },
     {
-      id: 6,
+      id: 7,
       message: "Merci ! Tu as des projets pour aujourd'hui ?",
     },
     {
-      id: 7,
+      id: 8,
       message: "Je vais faire du shopping avec des amis  .",
     },
     {
-      id: 8,
+      id: 9,
       message: "Ça semble amusant ! Profite bien !",
     },
-    { id: 9, message: "Merci, je le ferai !" },
+    { id: 10, message: "Merci, je le ferai !" },
     {
-      id: 10,
+      id: 11,
       message: "Tu as vu le dernier film qui est sorti ?",
     },
     {
-      id: 11,
+      id: 12,
       message: "Non, pas encore. Tu me le recommandes ?",
     },
     {
-      id: 12,
+      id: 13,
       message: "Oui, c'était génial ! Je te le recommande.",
     },
     {
-      id: 13,
+      id: 14,
       message: "Super, je vais le regarder alors.",
     },
     {
-      id: 14,
+      id: 15,
       message: "Tu me diras ce que tu en penses !",
     },
     {
-      id: 15,
+      id: 16,
       message: "Bien sûr, je te ferai un retour.",
     },
     {
-      id: 16,
+      id: 17,
       message: "Merci, j'attends avec impatience !",
     },
-    { id: 17, message: "De rien, c'est avec plaisir !" },
+    { id: 18, message: "De rien, c'est avec plaisir !" },
     {
-      id: 18,
+      id: 19,
       message: "Au fait, as-tu des plans pour le week-end ?",
     },
     {
-      id: 19,
+      id: 20,
       message: "Oui, je vais rendre visite à ma famille.",
     },
     {
-      id: 20,
+      id: 21,
       message: "C'est génial ! Profite de ce moment.",
     },
   ];
