@@ -70,7 +70,7 @@ const Post = ({ post, setRefresh, refresh }) => {
           </p>
         </div>
       </div>
-      <p className="mx-5 my-5 md:text-xl">{post.content}</p>
+      <p className="mx-5 my-5 md:text-xl ">{post.content}</p>
       <div
         className={`flex items-center justify-between bg-neutral ${
           openCom ? "rounded-none" : "rounded-b-[1rem]"
