@@ -54,7 +54,7 @@ function SideBar() {
           </Link>
         </span>
       </div>
-      <div className="flex flex-col justify-end  h-1/2">
+      <div className="flex flex-col justify-end  h-1/2 pb-2">
         <Link
           ref={glitch.ref}
           to="/contact"
