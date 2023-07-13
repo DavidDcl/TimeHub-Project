@@ -1,53 +1,54 @@
-import { useEffect, useState } from "react"
-import Post from "../components/Post"
-import FriendsList from "../components/FriendList"
-import SideBar from "./../components/SideBar"
+import { useEffect, useState } from "react";
+import Post from "../components/Post";
+import FriendsList from "../components/FriendList";
+import SideBar from "./../components/SideBar";
 
-const Home = () => {
-  const [modal, setModal] = useState(true)
-  const [posts, setPosts] = useState(null)
-  const [refresh, setRefresh] = useState(false)
-  const [content, setContent] = useState("")
-  const [active, setActive] = useState(false)
-
-  useEffect(() => {
-    fetchData()
-  }, [refresh, posts])
+const Home = ({ setOk }) => {
+  const [modal, setModal] = useState(true);
+  const [posts, setPosts] = useState(null);
+  const [refresh, setRefresh] = useState(false);
+  const [content, setContent] = useState("");
+  const [active, setActive] = useState(false);
 
   useEffect(() => {
-    const storageModal = localStorage.getItem("modalState")
+    fetchData();
+  }, [refresh, posts]);
+
+  useEffect(() => {
+    const storageModal = localStorage.getItem("modalState");
     if (storageModal === "false") {
-      setModal(false)
+      setModal(false);
     }
-  }, [])
+  }, []);
 
   const handleConnexion = () => {
-    setModal(false)
-    localStorage.setItem("modalState", "false")
-    setActive(!active)
-  }
+    setModal(false);
+    localStorage.setItem("modalState", "false");
+    setActive(!active);
+    setOk(true);
+  };
 
   const fetchData = async () => {
     await fetch("http://localhost:8000/api/posts")
       .then((res) => res.json())
-      .then((data) => setPosts(data))
-  }
+      .then((data) => setPosts(data));
+  };
 
   const handleSubmit = async (e) => {
     if (content) {
-      e.preventDefault()
+      e.preventDefault();
       const requestOptions = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ content: `${content}` }),
-      }
-      fetch(`http://localhost:8000/api/posts`, requestOptions)
-      setContent("")
-      setRefresh(!refresh)
+      };
+      fetch(`http://localhost:8000/api/posts`, requestOptions);
+      setContent("");
+      setRefresh(!refresh);
     } else {
-      e.preventDefault()
+      e.preventDefault();
     }
-  }
+  };
 
   return (
     <div className="mt-4">
@@ -168,7 +169,7 @@ const Home = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
