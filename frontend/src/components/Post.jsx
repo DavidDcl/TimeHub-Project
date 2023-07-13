@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useGlitch } from "react-powerglitch";
 import Comment from "./Comment";
 
@@ -8,7 +9,7 @@ const Post = ({ post, setRefresh, refresh }) => {
   const [like, setLike] = useState(false);
   const [dislike, setDislike] = useState(false);
   const glitch = useGlitch();
-
+  const [animationParent] = useAutoAnimate();
   const fetchCom = () => {
     fetch(`http://localhost:8000/api/comments`)
       .then((res) => res.json())
@@ -76,7 +77,10 @@ const Post = ({ post, setRefresh, refresh }) => {
   };
 
   return (
-    <div className="flex flex-col rounded-[1rem] border-2 border-neutral mx-3 mb-5">
+    <div
+      ref={animationParent}
+      className="flex flex-col rounded-[1rem] border-2 border-neutral mx-3 mb-5"
+    >
       <div className="flex items-center gap-3 ml-5 mt-5">
         <Link to={`/profile/${post.uid}`} className="text-sm md:text-lg mr-4">
           <img

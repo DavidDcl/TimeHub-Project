@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 import NavBar from "./components/NavBar";
 import BottomNav from "./components/BottomNav";
@@ -9,7 +10,6 @@ import ProfilePage from "./pages/ProfilePage";
 import SearchPage from "./pages/SearchPage";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-import { useState } from "react";
 
 const App = () => {
   const [ok, setOk] = useState(false);
