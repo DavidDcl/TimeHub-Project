@@ -154,7 +154,7 @@ const Home = ({ setOk }) => {
               <div className="flex rounded-lg border-2 border-primary mx-3 mb-5">
                 <div className="flex flex-col">
                   <img
-                    className="rounded-full w-12 h-12 ml-3 mt-3 mr-8"
+                    className="rounded-full w-12 h-12 ml-3 mt-3 mr-8 border-2 border-primary "
                     src="/1.png"
                     alt=""
                   />

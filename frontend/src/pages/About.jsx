@@ -59,17 +59,12 @@ const About = () => {
               site, mais il est soit trop tard, soit trop tôt.
             </p>
             <iframe
-              width="600 "
-              height="500"
+              width="598 "
+              height="350"
               src="https://www.youtube.com/embed/hPr-Yc92qaY"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
-            ></iframe>
-            <iframe
-              src="https://giphy.com/embed/3o7aD2d7hy9ktXNDP2"
-              width="100%"
-              height="100%"
             ></iframe>
           </div>
         </div>
