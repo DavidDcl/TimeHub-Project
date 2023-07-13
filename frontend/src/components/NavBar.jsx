@@ -5,14 +5,17 @@ import logo from "../assets/logo.png"
 
 const NavBar = ({ ok }) => {
   return (
-    <div className="md:flex md:justify-center">
+    <div className="md:flex md:justify-center ">
       <div
         id="nav"
-        className="hidden md:w-full md:max-w-5xl md:flex md:items-center md:justify-between md:border-b-2 md:border-primary"
+        className="hidden md:w-full md:max-w-5xl md:flex md:items-center md:justify-between md:border-b-2 md:border-primary md:pb-2"
       >
-        <Link to="/">
-          <img src={logo} alt="TimeHub" />
-        </Link>
+        <div id="logo" className=" relative rounded-lg overflow-hidden">
+          <Link to="/">
+            <div className="absolute inset-0 border-gradient-animation "></div>
+            <img src={logo} alt="" className="w-36" />
+          </Link>
+        </div>
         <div className="flex gap-10 mr-10">
           <Link to="/search">
             <svg
