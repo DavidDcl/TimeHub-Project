@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function SideBar() {
   return (
-    <div className="hidden lg:flex lg:flex-col lg:gap-3 lg:mx-3 lg:pr-3 lg:pt-3">
+    <div className="hidden lg:flex lg:flex-col lg:items-center lg:gap-3 lg:mx-3 lg:pr-3 lg:pt-3">
       <div className="flex flex-col gap-3 h-1/2">
         <Link to="/" className="flex items-center gap-2">
           <svg
