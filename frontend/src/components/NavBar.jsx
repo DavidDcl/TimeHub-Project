@@ -1,12 +1,31 @@
 import { Link } from 'react-router-dom'
 import pp from '/1.png'
-import logo from '../assets/logo.png'
 import { useGlitch } from 'react-powerglitch'
+import logo from '../assets/logo.png'
+import cleo from '/2.png'
+import { useEffect, useState } from 'react'
+import not from '/not.png'
+import deco from '/deco.png'
 
 const NavBar = ({ ok }) => {
   const glitch = useGlitch()
+  const [notif, setNotif] = useState(false)
+  const [control, setControl] = useState(true)
+
+  const handleFuckUbitch = () => {
+    localStorage.clear()
+  }
+
+  useEffect(() => {
+    if (control === true) {
+      setTimeout(() => {
+        setNotif(true)
+      }, 60000)
+    }
+  }, [])
   return (
     <div className='md:flex md:justify-center md:mt-2'>
+      <a href='../pages/Home.jsx'></a>
       <div
         id='nav'
         className='hidden md:w-full md:max-w-5xl md:flex md:items-center md:justify-between md:border-b-2 md:border-primary md:pb-2'
@@ -36,15 +55,20 @@ const NavBar = ({ ok }) => {
               </svg>
             </Link>
           </span>
+
           <details className='dropdown dropdown-end '>
             <summary className='m-1 btn hover:bg-transparent bg-transparent hover:border-transparent border-transparent'>
               <span ref={glitch.ref}>
+                {notif && <img src={not} className='absolute w-4' />}
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   className='h-12 w-12 rounded-full text-secondary p-1'
                   fill='none'
                   viewBox='-1 0 28 25'
                   stroke='currentColor'
+                  onClick={() => {
+                    setControl(false)
+                  }}
                 >
                   <path
                     xmlns='http://www.w3.org/2000/svg'
@@ -54,13 +78,28 @@ const NavBar = ({ ok }) => {
                 </svg>
               </span>
             </summary>
-            <ul className='p-2 h-24 shadow menu dropdown-content z-[1] rounded-box w-52 mt-8 bg-primary'>
-              <li className='-0'>
-                <p className='text-slate-800 text-lg font-semibold uppercase text-center'>
-                  Pas de nouvelles
-                  <br />
-                  Notifications
-                </p>
+
+            <ul className='p-2 h-24  shadow menu dropdown-content z-[1] rounded-box w-[20rem] mt-8 bg-primary flex '>
+              <li
+                className='-0'
+                onClick={() => {
+                  setNotif(false)
+                }}
+              >
+                <div className='flex items-center '>
+                  {notif ? (
+                    <Link to='/Profile/2' className='flex items-center '>
+                      <img src={cleo} alt='' className='w-16 flex mr-4' />
+                      <p className='text-base-100  font-semibold'>
+                        Cléopatre viens de poster
+                      </p>
+                    </Link>
+                  ) : (
+                    <p className=' m-auto text-lg font-semibold text-base-100 leading-[4rem]'>
+                      Aucune notification
+                    </p>
+                  )}
+                </div>
               </li>
             </ul>
           </details>
@@ -85,12 +124,19 @@ const NavBar = ({ ok }) => {
             </div>
           </Link>
         )}
-        <div id='logo' className='ml-6 relative rounded-lg overflow-hidden '>
+        <div id='logo' className=' relative rounded-lg overflow-hidden '>
           <Link ref={glitch.ref} to='/'>
             <div className='absolute inset-0 border-gradient-animation'></div>
             <img src={logo} alt='' className='w-36' />
           </Link>
         </div>
+        {ok && (
+          <div>
+            <a href='/'>
+              <img src={deco} alt='' onClick={handleFuckUbitch} />
+            </a>
+          </div>
+        )}
       </div>
     </div>
   )

@@ -1,8 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useGlitch } from 'react-powerglitch'
+import couillemolle from '/deco.png'
 
 function SideBar() {
   const glitch = useGlitch()
+  const handleBye = () => {
+    localStorage.clear()
+  }
   return (
     <div className='hidden lg:flex lg:flex-col lg:items-center lg:gap-3 lg:mx-3 lg:pr-3 lg:pt-3'>
       <div className='flex flex-col gap-3 h-1/2'>
@@ -54,6 +58,7 @@ function SideBar() {
           </Link>
         </span>
       </div>
+
       <div className='flex flex-col justify-end  h-1/2 pb-2'>
         <Link
           ref={glitch.ref}
@@ -87,6 +92,16 @@ function SideBar() {
           </svg>
           <p>A propos</p>
         </Link>
+        <div
+          ref={glitch.ref}
+          className=' flex items-center gap-4'
+          onClick={handleBye}
+        >
+          <a href='/' className='flex items-center gap-4'>
+            <img src={couillemolle} alt='' className='w-10' />
+            <p>Déconnexion</p>
+          </a>
+        </div>
       </div>
     </div>
   )
