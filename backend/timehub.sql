@@ -1,10 +1,8 @@
--- Active: 1688391395018@@127.0.0.1@3306@timehub
+DROP TABLE IF EXISTS `comments`;
 
 DROP TABLE IF EXISTS `posts`;
 
 DROP TABLE IF EXISTS `users`;
-
-DROP TABLE IF EXISTS `comments`;
 
 CREATE TABLE
     `users` (

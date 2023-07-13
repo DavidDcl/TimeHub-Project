@@ -1,14 +1,17 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
-import NavBar from "./components/NavBar";
-import BottomNav from "./components/BottomNav";
-import Home from "./pages/Home";
-import ChatPage from "./pages/ChatPage";
-import ChatPageId from "./pages/ChatPageId";
-import ProfilePage from "./pages/ProfilePage";
-import SearchPage from "./pages/SearchPage";
+import NavBar from "./components/NavBar"
+import BottomNav from "./components/BottomNav"
+import Home from "./pages/Home"
+import ChatPage from "./pages/ChatPage"
+import ChatPageId from "./pages/ChatPageId"
+import ProfilePage from "./pages/ProfilePage"
+import SearchPage from "./pages/SearchPage"
+import { useState } from "react"
+import Contact from "./pages/Contact"
 
 const App = () => {
+  const [ok, setOK] = useState(false)
   return (
     <>
       <BrowserRouter>
@@ -22,6 +25,7 @@ const App = () => {
                 <Route path="/chatpage/:id" element={<ChatPageId />} />
                 <Route path="/profile/:id" element={<ProfilePage />} />
                 <Route path="/search" element={<SearchPage />} />
+                <Route path="/contact" element={<Contact />} />
               </Routes>
             </div>
           </main>
@@ -29,7 +33,7 @@ const App = () => {
         </div>
       </BrowserRouter>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App
