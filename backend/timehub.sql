@@ -1,10 +1,8 @@
--- Active: 1689163390473@@127.0.0.1@3306@timehub
 DROP TABLE IF EXISTS `comments`;
 
 DROP TABLE IF EXISTS `posts`;
 
 DROP TABLE IF EXISTS `users`;
-
 
 CREATE TABLE
     `users` (
@@ -482,5 +480,3 @@ SELECT
 FROM comments c
     JOIN posts p ON c.post_id = p.id
     JOIN users u ON c.author = u.id;
-
-
