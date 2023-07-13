@@ -1,10 +1,11 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 const ConversationList = () => {
   const conversations = [
     {
       utilisateur: "Cleopatra Patra",
       pseudo: "Reine_Du_Nil",
-      message: "C'est génial ! Profite de ce moment.",
+      message:
+        "Au revoir, Einstein. Que tes découvertes continuent d'éclairer le monde. Adieu !",
       img: "/2.png",
     },
     {
@@ -31,7 +32,7 @@ const ConversationList = () => {
       message: "BUUULLLL RRUUUUNNN !!!",
       img: "/7.png",
     },
-  ]
+  ];
 
   return (
     <div className="flex flex-col">
@@ -90,7 +91,7 @@ const ConversationList = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ConversationList
+export default ConversationList;

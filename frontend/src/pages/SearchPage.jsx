@@ -50,9 +50,10 @@ const SearchPage = () => {
                   .toLocaleLowerCase()
                   .includes(input.toLocaleLowerCase())
             )
-            .map((user) => (
-              <ProfileCard key={user.id} user={user} />
-            ))}
+            .map(
+              (user) =>
+                user.id != 1 && <ProfileCard key={user.id} user={user} />
+            )}
         </div>
       </div>
     </div>

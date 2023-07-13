@@ -46,7 +46,7 @@ function SideBar() {
         <span ref={glitch.ref}>
           <Link to="/profile/1" className="flex items-center gap-4">
             <img
-              className="h-10 w-10"
+              className="h-10 w-10 border-2 border-primary rounded-full"
               src="/public/1.png"
               alt="Albert Einstein"
             />

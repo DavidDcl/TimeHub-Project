@@ -3,6 +3,7 @@ import SideBar from "../components/SideBar";
 import cece from "/cece.png";
 import killian from "/killian.png";
 import nawak from "/nawak.png";
+import insom from "/INSOMNIA2.png";
 import persona from "/persona.png";
 const About = () => {
   return (
@@ -16,49 +17,54 @@ const About = () => {
           TimeHub est un réseau social intemporel qui a vu le jour grâce à cinq
           insomniaques chevronnés.
         </p>
-        <div className="flex flex-col items-center ">
-          <div className="flex flex-col items-center">
-            <h1>NAWAK</h1>
-
+        <div className="flex flex-col items-start gap-3 ">
+          <div className="flex gap-5">
             <img src={nawak} alt="" />
-            <p>BOUMMMM BEBE !</p>
+            <div className="flex flex-col justify-center text-primary">
+              <h1>Nawak : team leader option BDD </h1>
+              <p>BOUMMMM BEBE !</p>
+            </div>
           </div>
-          <div className="flex flex-col items-center">
-            <h1>DEGLINGO</h1>
+          <div className="flex gap-5 ">
             <img src={killian} alt="" />
-            <p>DONNEZ MOI UN LIT</p>
+            <div className="flex flex-col justify-center center text-secondary">
+              <h1>Killian : Fetcheur fou </h1>
+              <p>YA UN MONDE OU ...</p>
+            </div>
           </div>
-          <div className="flex flex-col items-center">
-            <h1>THIBAULT</h1>
+          <div className="flex gap-5">
             <img src={persona} alt="" />
+            <div className="flex flex-col justify-center center text-primary">
+              <h1>THIBAULT : Scrib préféré de ton scrib preféré </h1>
+              <p>DU CAFE!</p>
+            </div>
           </div>
-          <div className="flex flex-col items-center">
-            <h1>DAVID</h1>
-            <img src={persona} alt="" />
+          <div className="flex gap-5">
+            <img src={insom} alt="" />
+            <div className="flex flex-col justify-center center text-secondary">
+              <h1>DAVID : Routeur fou </h1>
+              <p>ON EST DANS LES TEMPS ???</p>
+            </div>
           </div>
-          <div className="flex flex-col items-center">
-            <h1>CECE</h1>
+          <div className="flex  gap-5">
             <img src={cece} alt="" />
-            <p>CSS DE MERDE </p>
+            <div className="flex flex-col justify-center center text-primary">
+              <h1>CECE : Designer professionnel officiel (c'est faux)</h1>
+              <p>CSS DE MERDE </p>
+            </div>
           </div>
           <div className="flex-col flex items-center">
-            <p className="text-center">
+            <p className="text-center my-4">
               On aurait aimé vous faire un tour rapide des fonctionnalités du
               site, mais il est soit trop tard, soit trop tôt.
             </p>
             <iframe
-              width="w-11/12 "
-              height="200"
+              width="598 "
+              height="350"
               src="https://www.youtube.com/embed/hPr-Yc92qaY"
               title="YouTube video player"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowfullscreen
-            ></iframe>
-            <iframe
-              src="https://giphy.com/embed/3o7aD2d7hy9ktXNDP2"
-              width="100%"
-              height="100%"
-              allowFullScreen
             ></iframe>
           </div>
         </div>
