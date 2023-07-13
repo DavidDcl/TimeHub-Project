@@ -1,12 +1,12 @@
-import pp from "../../public/2.png";
-import FriendsList from "../components/FriendList";
-import SideBar from "../components/SideBar";
+import pp from '/2.png'
+import FriendsList from '../components/FriendList'
+import SideBar from '../components/SideBar'
 
 const ChatPageId = () => {
   const conversation = [
-    { id: 1, message: "Salut, ça va ?" },
-    { id: 2, message: "Oui, et toi ?" },
-    { id: 3, message: "Je vais bien aussi, merci !" },
+    { id: 1, message: 'Salut, ça va ?' },
+    { id: 2, message: 'Oui, et toi ?' },
+    { id: 3, message: 'Je vais bien aussi, merci !' },
     {
       id: 4,
       message:
@@ -50,7 +50,7 @@ const ChatPageId = () => {
     {
       id: 12,
       message:
-        "Je crois en un avenir où la science continuera à nous aider à résoudre les défis mondiaux, tels que les énergies renouvelables, la santé et la préservation de notre planète. La collaboration internationale et la curiosité humaine sont essentielles pour avancer.",
+        'Je crois en un avenir où la science continuera à nous aider à résoudre les défis mondiaux, tels que les énergies renouvelables, la santé et la préservation de notre planète. La collaboration internationale et la curiosité humaine sont essentielles pour avancer.',
     },
     {
       id: 13,
@@ -65,52 +65,52 @@ const ChatPageId = () => {
     {
       id: 15,
       message:
-        "Merci à toi aussi, Einstein. Nos chemins se croisent à travers le temps, et il est fascinant de voir comment nos visions du monde se complètent. Je te souhaite le meilleur dans tes recherches et tes explorations scientifiques.",
+        'Merci à toi aussi, Einstein. Nos chemins se croisent à travers le temps, et il est fascinant de voir comment nos visions du monde se complètent. Je te souhaite le meilleur dans tes recherches et tes explorations scientifiques.',
     },
     {
       id: 16,
       message:
-        "Merci, Cléopâtre. Prends soin de toi et de ton royaume. Puissions-nous tous continuer à élargir nos horizons et à repousser les frontières de la connaissance. Au revoir !",
+        'Merci, Cléopâtre. Prends soin de toi et de ton royaume. Puissions-nous tous continuer à élargir nos horizons et à repousser les frontières de la connaissance. Au revoir !',
     },
     {
       id: 17,
       message:
         "Au revoir, Einstein. Que tes découvertes continuent d'éclairer le monde. Adieu !",
     },
-  ];
+  ]
   return (
-    <div className="lg:flex lg:justify-between lg:gap-3  ">
-      <div id="1/3 " className="flex lg:w-1/6 ">
+    <div className='lg:flex lg:justify-between lg:gap-3  '>
+      <div id='1/3 ' className='flex lg:w-1/6 '>
         <SideBar />
       </div>
-      <div className="flex flex-col lg:w-5/6 lg:h-[85vh] lg:overflow-y-auto lg:mt-4">
+      <div className='flex flex-col lg:w-5/6 lg:h-[85vh] lg:overflow-y-auto lg:mt-4'>
         <div
-          id=" en tete "
-          className="w-full flex gap-3 border-b-2 border-secondary my-2"
+          id=' en tete '
+          className='w-full flex gap-3 border-b-2 border-secondary my-2'
         >
-          <div id="Pp" className="w-20 pb-2">
-            <img src={pp} alt="Cleo" />
+          <div id='Pp' className='w-20 pb-2'>
+            <img src={pp} alt='Cleo' />
           </div>
-          <div id="peusdo " className="flex gap-2 text-2xl">
+          <div id='peusdo ' className='flex gap-2 text-2xl'>
             <h1>Cleopatre</h1>
             <p>@Reine_Du_Nil</p>
           </div>
         </div>
-        <div id="conversation" className="flex flex-col m-2 gap-3">
+        <div id='conversation' className='flex flex-col m-2 gap-3'>
           {conversation.map((elem) => (
             <div
               key={elem.id}
               className={`${
                 elem.id % 2 === 0
-                  ? "flex justify-end ml-3"
-                  : "flex justify-start mr-3"
+                  ? 'flex justify-end ml-3'
+                  : 'flex justify-start mr-3'
               }`}
             >
               <p
                 className={`${
                   elem.id % 2 === 0
-                    ? "flex py-3 px-2 bg-accent rounded-xl"
-                    : "flex py-3 px-2 rounded-xl bg-primary"
+                    ? 'flex py-3 px-2 bg-accent rounded-xl'
+                    : 'flex py-3 px-2 rounded-xl bg-primary'
                 }`}
               >
                 {elem.message}
@@ -119,24 +119,24 @@ const ChatPageId = () => {
           ))}
         </div>
         <div
-          id=" message "
-          className="flex w-full 11/12 justify-center bg-base-100 sticky bottom-16   lg:bottom-0 "
+          id=' message '
+          className='flex w-full 11/12 justify-center bg-base-100 sticky bottom-16   lg:bottom-0 '
         >
           <input
-            type="text"
-            placeholder="Ecris le message"
-            className=" bg-base-100 border rounded-lg border-secondary p-2 mt-3 w-11/12 "
+            type='text'
+            placeholder='Ecris le message'
+            className=' bg-base-100 border rounded-lg border-secondary p-2 mt-3 w-11/12 '
           />
         </div>
       </div>
       <div
-        id="3/3"
-        className="hidden lg:w-1/6 lg:h-[85vh] lg:overflow-y-auto lg:mt-4  lg:flex"
+        id='3/3'
+        className='hidden lg:w-1/6 lg:h-[85vh] lg:overflow-y-auto lg:mt-4  lg:flex'
       >
         <FriendsList />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ChatPageId;
+export default ChatPageId
