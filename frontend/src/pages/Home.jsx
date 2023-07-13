@@ -3,7 +3,7 @@ import Post from "../components/Post";
 import FriendsList from "../components/FriendList";
 import SideBar from "./../components/SideBar";
 
-const Home = () => {
+const Home = ({ setOk }) => {
   const [modal, setModal] = useState(true);
   const [posts, setPosts] = useState(null);
   const [refresh, setRefresh] = useState(false);
@@ -25,6 +25,7 @@ const Home = () => {
     setModal(false);
     localStorage.setItem("modalState", "false");
     setActive(!active);
+    setOk(true);
   };
 
   const fetchData = async () => {

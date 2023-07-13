@@ -1,13 +1,7 @@
-import profileP from "../../public/1.png"
-
-import profile2 from "../../public/2.png"
+import profile2 from "../../public/2.png";
+import { Link } from "react-router-dom";
 const ConversationList = () => {
   const conversations = [
-    {
-      utilisateur: "Utilisateur1",
-      message: "Salut, ça va ?",
-      img: profileP,
-    },
     {
       utilisateur: "Utilisateur2",
       message: "Oui, et toi ?",
@@ -33,7 +27,7 @@ const ConversationList = () => {
       message: "Bon courage !",
       img: "/7.png",
     },
-  ]
+  ];
 
   return (
     <div className="flex flex-col">
@@ -46,26 +40,47 @@ const ConversationList = () => {
       </div>
       <div className="">
         {conversations.map((conversation, index) => (
-          <div
-            key={index}
-            className="rounded-[1rem] p-2 mb-4 border-2 border-neutral mx-3"
-          >
-            <div className="flex items-center mb-2">
-              <img
-                className="w-12 h-12 rounded-full border-2 border-primary"
-                src={conversation.img}
-                alt="user-profile"
-              />
-              <p className="dark:text-secondary font-semibold ml-2">
-                {conversation.utilisateur}
-              </p>
-            </div>
-            <p>{conversation.message}</p>
+          <div key={index}>
+            {index === 0 ? (
+              <div>
+                <Link to="/chatpage/1">
+                  <div className="rounded-[1rem] p-2 mb-4 border-2 border-neutral mx-3">
+                    <div className="flex items-center mb-2">
+                      <img
+                        className="w-12 h-12 rounded-full border-2 border-primary"
+                        src={conversation.img}
+                        alt="user-profile"
+                      />
+                      <p className="dark:text-secondary font-semibold ml-2">
+                        {conversation.utilisateur}
+                      </p>
+                    </div>
+
+                    <p>{conversation.message}</p>
+                  </div>
+                </Link>
+              </div>
+            ) : (
+              <div className="rounded-[1rem] p-2 mb-4 border-2 border-neutral mx-3">
+                <div className="flex items-center mb-2">
+                  <img
+                    className="w-12 h-12 rounded-full border-2 border-primary"
+                    src={conversation.img}
+                    alt="user-profile"
+                  />
+                  <p className="dark:text-secondary font-semibold ml-2">
+                    {conversation.utilisateur}
+                  </p>
+                </div>
+
+                <p>{conversation.message}</p>
+              </div>
+            )}
           </div>
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default ConversationList
+export default ConversationList;
