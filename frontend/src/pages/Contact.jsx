@@ -6,7 +6,7 @@ function Contact() {
       <form className="w-full flex flex-col items-center gap-5" action="">
         <div className="form-control ">
           <label className="input-group">
-            <span>Email</span>
+            <span className=" w-24">Email</span>
             <input
               type="text"
               placeholder="info@site.com"
@@ -16,7 +16,7 @@ function Contact() {
         </div>
         <div className="form-control">
           <label className="input-group">
-            <span className="">Prénom</span>
+            <span className="w-24">Prénom</span>
             <input
               type="text"
               placeholder="Votre prénom"
@@ -26,7 +26,7 @@ function Contact() {
         </div>
         <div className="form-control">
           <label className="input-group">
-            <span>Nom</span>
+            <span className="w-24">Nom</span>
             <input
               type="text"
               placeholder="Votre nom"

@@ -28,7 +28,24 @@ const read = (req, res) => {
     })
 }
 
+const add = (req, res) => {
+  const item = req.body
+
+  // TODO validations (length, format...)
+
+  models.comment
+    .insert(item)
+    .then(([result]) => {
+      res.location(`/comments/${result.insertId}`).sendStatus(201)
+    })
+    .catch((err) => {
+      console.error(err)
+      res.sendStatus(500)
+    })
+}
+
 export default {
   browse,
   read,
+  add,
 }

@@ -2,17 +2,23 @@ import { useEffect, useState } from 'react'
 import Post from '../components/Post'
 import FriendsList from '../components/FriendList'
 import SideBar from './../components/SideBar'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
-const Home = () => {
+const Home = ({ setOk }) => {
   const [modal, setModal] = useState(true)
   const [posts, setPosts] = useState(null)
   const [refresh, setRefresh] = useState(false)
   const [content, setContent] = useState('')
   const [active, setActive] = useState(false)
+  const [username, setUsername] = useState('')
+  const [userExists, setUserExists] = useState(false)
 
   useEffect(() => {
-    fetchData()
-  }, [refresh, posts])
+    fetch("http://localhost:8000/api/posts")
+      .then((res) => res.json())
+      .then((data) => setPosts(data));
+  }, [refresh]);
 
   useEffect(() => {
     const storageModal = localStorage.getItem('modalState')
@@ -21,19 +27,26 @@ const Home = () => {
     }
   }, [])
 
+  useEffect(() => {
+    checkUserExists()
+  }, [username])
+
   const handleConnexion = () => {
-    setModal(false)
-    localStorage.setItem('modalState', 'false')
-    setActive(!active)
+    if (userExists) {
+      setModal(false)
+      localStorage.setItem('modalState', 'false')
+      setActive(!active)
+      setOk(true)
+    } else {
+      toast.error('User does not exist')
+    }
   }
 
-  const fetchData = async () => {
-    await fetch('http://localhost:8000/api/posts')
-      .then((res) => res.json())
-      .then((data) => setPosts(data))
-  }
+  const handleContent = (e) => {
+    setContent(e.target.value);
+  };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     if (content) {
       e.preventDefault()
       const requestOptions = {
@@ -46,6 +59,19 @@ const Home = () => {
       setRefresh(!refresh)
     } else {
       e.preventDefault()
+    }
+  }
+
+  const checkUserExists = async () => {
+    try {
+      const response = await fetch(`http://localhost:8000/api/users`)
+      const data = await response.json()
+
+      if (data[0].nickname === username) {
+        setUserExists(username)
+      }
+    } catch (error) {
+      console.error(error)
     }
   }
 
@@ -81,6 +107,8 @@ const Home = () => {
                     type='text'
                     placeholder="nom d'utilisateur"
                     className='input input-bordered dark:text-secondary'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
                   />
                 </div>
                 <div className='form-control'>
@@ -134,7 +162,7 @@ const Home = () => {
                           className='bg-transparent flex-grow mt-3 border-none outline-none resize-none'
                           placeholder="Qu'as-tu en tête ? ..."
                           value={content}
-                          onChange={(e) => setContent(e.target.value)}
+                          onChange={handleContent}
                         />
                         <div className='flex justify-end'>
                           <button
@@ -149,16 +177,14 @@ const Home = () => {
                   </div>
                   <div>
                     {posts &&
-                      posts
-                        .toReversed()
-                        .map((post) => (
-                          <Post
-                            key={post.id}
-                            post={post}
-                            refresh={refresh}
-                            setRefresh={setRefresh}
-                          />
-                        ))}
+                      posts.map((post) => (
+                        <Post
+                          key={post.id}
+                          post={post}
+                          refresh={refresh}
+                          setRefresh={setRefresh}
+                        />
+                      ))}
                   </div>
                 </div>
               </div>
@@ -169,6 +195,7 @@ const Home = () => {
           </div>
         </>
       )}
+      <ToastContainer />
     </div>
   )
 }

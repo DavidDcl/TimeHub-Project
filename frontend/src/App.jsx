@@ -11,7 +11,6 @@ import { useState } from "react"
 import Contact from "./pages/Contact"
 
 const App = () => {
-  const [ok, setOK] = useState(false)
   return (
     <>
       <BrowserRouter>
@@ -22,7 +21,7 @@ const App = () => {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/chatpage" element={<ChatPage />} />
-                <Route path="/chatpage/:id" element={<ChatPageId />} />
+                <Route path="/chatpage/1" element={<ChatPageId />} />
                 <Route path="/profile/:id" element={<ProfilePage />} />
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/contact" element={<Contact />} />
