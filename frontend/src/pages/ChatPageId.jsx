@@ -1,9 +1,13 @@
+import { useState } from 'react'
+
 import pp from '/2.png'
 import FriendsList from '../components/FriendList'
 import SideBar from '../components/SideBar'
 
 const ChatPageId = () => {
-  const conversation = [
+  const [inputValue, setInputValue] = useState('')
+
+  const [conversation, setConversation] = useState([
     { id: 1, message: 'Salut, ça va ?' },
     { id: 2, message: 'Oui, et toi ?' },
     { id: 3, message: 'Je vais bien aussi, merci !' },
@@ -77,7 +81,23 @@ const ChatPageId = () => {
       message:
         "Au revoir, Einstein. Que tes découvertes continuent d'éclairer le monde. Adieu !",
     },
-  ]
+  ])
+  const handleKeyDown = (event) => {
+    if (event.keyCode === 13) {
+      event.preventDefault()
+
+      if (inputValue.trim() !== '') {
+        const newMessage = {
+          id: conversation.length + 1,
+          message: inputValue.trim(),
+        }
+
+        setConversation([...conversation, newMessage])
+        setInputValue('')
+      }
+    }
+  }
+
   return (
     <div className='lg:flex lg:justify-between lg:gap-3  '>
       <div id='1/3 ' className='flex lg:w-1/6 '>
@@ -96,14 +116,14 @@ const ChatPageId = () => {
             <p>@Reine_Du_Nil</p>
           </div>
         </div>
-        <div id='conversation' className='flex flex-col m-2 gap-3'>
+        <div id='conversation' className='flex flex-col m-2 gap-3 mb-20 '>
           {conversation.map((elem) => (
             <div
               key={elem.id}
               className={`${
                 elem.id % 2 === 0
                   ? 'flex justify-end ml-3'
-                  : 'flex justify-start mr-3'
+                  : 'flex justify-start mr-3 '
               }`}
             >
               <p
@@ -126,6 +146,9 @@ const ChatPageId = () => {
             type='text'
             placeholder='Ecris le message'
             className=' bg-base-100 border rounded-lg border-secondary p-2 mt-3 w-11/12 '
+            value={inputValue}
+            onChange={(event) => setInputValue(event.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </div>
       </div>
