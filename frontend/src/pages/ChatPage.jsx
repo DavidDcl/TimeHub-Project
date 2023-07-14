@@ -1,5 +1,15 @@
-const ChatPage = () => {
-  return <div>ChatPage</div>
-}
+import ConversationList from "../components/ConversationList";
+import SideBar from "../components/SideBar";
 
-export default ChatPage
+const ChatPage = () => {
+  return (
+    <div className="lg:flex">
+      <SideBar />
+      <div className="w-full lg:h-[90vh]">
+        <ConversationList />
+      </div>
+    </div>
+  );
+};
+
+export default ChatPage;
