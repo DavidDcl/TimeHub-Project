@@ -1,6 +1,6 @@
-import express from 'express'
+import express from "express"
 
-import cors from 'cors'
+import cors from "cors"
 
 import {
   getAll,
@@ -8,15 +8,15 @@ import {
   createOne,
   editOne,
   deleteOne,
-} from './model/posts.model.js'
+} from "./model/posts.model.js"
 
 const app = express()
 
 app.use(express.json())
-app.use(cors({ origin: 'http://localhost:3000' }))
+app.use(cors({ origin: process.env.FRONTEND_URL }))
 const router = express.Router()
 
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const [result] = await getAll()
 
@@ -26,7 +26,7 @@ router.get('/', async (req, res) => {
   }
 })
 
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params
     const [result] = await getID(id)
@@ -40,7 +40,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
     const post = req.body
     const [result] = await createOne(post)
@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const post = req.body
     const { id } = req.params
@@ -68,11 +68,11 @@ router.put('/:id', async (req, res) => {
     }
   } catch (e) {
     console.error(e)
-    res.status(500).json({ msg: 'Erreur' })
+    res.status(500).json({ msg: "Erreur" })
   }
 })
 
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params
 
@@ -85,12 +85,12 @@ router.delete('/:id', async (req, res) => {
     }
   } catch (e) {
     console.error(e)
-    res.status(500).json({ msg: 'Erreur' })
+    res.status(500).json({ msg: "Erreur" })
   }
 })
 
-app.use('/post', router)
+app.use("/post", router)
 
-app.get('*', (req, res) => res.sendStatus(404))
+app.get("*", (req, res) => res.sendStatus(404))
 
 export default app

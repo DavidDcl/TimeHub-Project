@@ -1,8 +1,8 @@
-import 'dotenv/config.js'
+import "dotenv/config.js"
 
-import app from './src/app.js'
+import app from "./src/app.js"
 
-const port = parseInt(process.env.APP_PORT ?? 8000)
+const port = parseInt(process.env.APP_PORT)
 
 app.listen(port, (err) => {
   if (err) {
