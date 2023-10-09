@@ -11,7 +11,7 @@ const Post = ({ post, setRefresh, refresh }) => {
   const glitch = useGlitch()
   const [animationParent] = useAutoAnimate()
   const fetchCom = () => {
-    fetch(`http://localhost:8000/api/comments`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comments`)
       .then((res) => res.json())
       .then((data) => setComs(data))
       .catch((err) => console.error(err))
@@ -31,7 +31,7 @@ const Post = ({ post, setRefresh, refresh }) => {
   }, [])
 
   const handleDelete = () => {
-    fetch(`http://localhost:8000/api/posts/${post.id}`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/posts/${post.id}`, {
       method: "DELETE",
     })
     setRefresh(!refresh)
@@ -54,7 +54,10 @@ const Post = ({ post, setRefresh, refresh }) => {
           post_id: post.id,
         }),
       }
-      fetch(`http://localhost:8000/api/comments`, requestOptions).then(() => {
+      fetch(
+        `${import.meta.env.VITE_BACKEND_URL}/api/comments`,
+        requestOptions
+      ).then(() => {
         setComContent("")
         fetchCom()
       })

@@ -1,15 +1,15 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 
 const FriendsList = () => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState(null)
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/users/")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users/`)
       .then((res) => res.json())
       .then((res) => setData(res))
-      .catch((err) => console.error(err));
-  }, []);
+      .catch((err) => console.error(err))
+  }, [])
 
   return (
     <div className="flex flex-col items-center">
@@ -37,7 +37,7 @@ const FriendsList = () => {
             </div>
           ))}
     </div>
-  );
-};
+  )
+}
 
-export default FriendsList;
+export default FriendsList

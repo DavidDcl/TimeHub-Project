@@ -11,7 +11,7 @@ import cors from "cors"
 const app = express()
 
 app.use(express.json())
-app.use(cors({ origin: "http://localhost:3000", optionsSuccessStatus: 200 }))
+app.use(cors({ origin: process.env.FRONTEND_URL, optionsSuccessStatus: 200 }))
 
 import router from "./router.js"
 app.use(router)

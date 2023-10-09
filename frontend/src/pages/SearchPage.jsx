@@ -8,7 +8,7 @@ const SearchPage = () => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:8000/api/users")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/users`)
       .then((res) => res.json())
       .then((resjson) => setUsers(resjson))
   }, [])

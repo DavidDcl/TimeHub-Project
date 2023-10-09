@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useState } from "react"
 
 function Comment({ com, fetchCom }) {
-  const [edit, setEdit] = useState(false);
-  const [contentEdit, setContentEdit] = useState("");
+  const [edit, setEdit] = useState(false)
+  const [contentEdit, setContentEdit] = useState("")
   const handleEdit = (com) => {
-    setEdit(!edit);
-    setContentEdit(com.content);
-  };
+    setEdit(!edit)
+    setContentEdit(com.content)
+  }
 
   const handleComDelete = (com) => {
-    fetch(`http://localhost:8000/api/comments/${com.id}`, {
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/api/comments/${com.id}`, {
       method: "DELETE",
-    }).then(() => fetchCom());
-  };
+    }).then(() => fetchCom())
+  }
 
   const handleSendEdit = (e, com) => {
     if (e.key === "Enter") {
@@ -25,16 +25,16 @@ function Comment({ com, fetchCom }) {
           author: com.uid,
           id: com.id,
         }),
-      };
+      }
       fetch(
-        `http://localhost:8000/api/comments/${com.id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/api/comments/${com.id}`,
         requestOptions
       ).then(() => {
-        setEdit(!edit);
-        fetchCom();
-      });
+        setEdit(!edit)
+        fetchCom()
+      })
     }
-  };
+  }
 
   return (
     <div key={com.id} className="flex flex-col bg-neutral">
@@ -85,7 +85,7 @@ function Comment({ com, fetchCom }) {
         </button>
       </div>
     </div>
-  );
+  )
 }
 
-export default Comment;
+export default Comment
